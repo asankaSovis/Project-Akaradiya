@@ -50,6 +50,7 @@ body {
 }
 
 .form__message {
+    padding-top: 15px;
     text-align: center;
     margin-bottom: 1rem;
 }
@@ -121,4 +122,33 @@ body {
 
 .form__link:hover {
     text-decoration: underline;
+}
+
+.form__radio-group {
+    display: inline-flex;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+.form__radio--input {
+    display:none;
+}
+
+.form__radio--label {
+    padding: 10px 20px;
+    font-size: 14px;
+    font: 500 1rem 'Quicksand', sans-serif;
+    color: #ffffff;
+    background: var(--color-primary);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.form__radio--label:not(:last-of-type) {
+    border-right: 1px solid var(--color-primary-dark);
+}
+
+.form__radio--input:checked + .form__radio--label {
+    background: var(--color-primary-dark);
 }
