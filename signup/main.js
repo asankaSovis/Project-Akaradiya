@@ -46,6 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     loginForm.addEventListener("submit", e => {
         e.preventDefault();
+        const buttonElement = loginForm.querySelector(".form__button");
+        buttonElement.classList.add("form__button--loading");
 
         const formData = new FormData(login);
 
@@ -66,15 +68,16 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             setFormMessage(loginForm, "error", "Invalid credentials");
         }
+        buttonElement.classList.remove("form__button--loading");
 
         //perform your AJAX/Fetch login
     });
 
     signupForm.addEventListener("submit", e => {
-        //e.preventDefault();
-        console.log("Hi");
+        e.preventDefault();
         const buttonElement = signupForm.querySelector(".form__button");
-        //buttonElement.classList.add("form__button--loading");
+        buttonElement.classList.add("form__button--loading");
+        buttonElement.disabled = true;
 
         const formData = new FormData(signup);
 
@@ -88,7 +91,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 method: 'post',
                 body: formData
             }).then(function(response) {
-                //buttonElement.classList.remove("form__button--loading");
+                buttonElement.classList.remove("form__button--loading");
+                buttonElement.disabled = false;
                 return response.text();
             }).then(function(text) {
                 console.log(text);
@@ -96,9 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 setFormMessage(signupForm, "error", "Oops! Something went wrong. Please reload the page.");
             })
         } else {
+            buttonElement.classList.remove("form__button--loading");
+            buttonElement.disabled = false;
             setFormMessage(signupForm, "error", "Invalid credentials");
         }
-      //buttonElement.classList.remove("form__button--loading");
 
         //perform your AJAX/Fetch login
     });

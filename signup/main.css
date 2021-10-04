@@ -1,6 +1,7 @@
 body {
     --color-primary: #009579;
     --color-primary-dark: #007f67;
+    --color-primary-light: #ace7dc;
     --colour-secondary: #252c6a;
     --color-error: #cc3333;
     --color-success: #4bb544;
@@ -109,7 +110,7 @@ body {
 }
 
 .form__button:disabled {
-    background: var(--color-error);
+    background: var(--color-primary-light);
 }
 
 .form__button--text {
