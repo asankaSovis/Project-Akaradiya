@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         const buttonElement = loginForm.querySelector(".form__button");
         buttonElement.classList.add("form__button--loading");
+        buttonElement.disabled = true;
 
         const formData = new FormData(login);
 
@@ -60,15 +61,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: formData
             }).then(function(response) {
                 return response.text();
+                buttonElement.classList.remove("form__button--loading");
+                buttonElement.disabled = false;
+                setFormMessage(login, "error", response.text());
             }).then(function(text) {
                 console.log(text);
+                buttonElement.classList.remove("form__button--loading");
+                buttonElement.disabled = false;
+                setFormMessage(login, "error", text);
             }).catch(function(error) {
                 setFormMessage(loginForm, "error", "Oops! Something went wrong. Please reload the page.");
             })
         } else {
+            buttonElement.classList.remove("form__button--loading");
+            buttonElement.disabled = false;
             setFormMessage(loginForm, "error", "Invalid credentials");
         }
-        buttonElement.classList.remove("form__button--loading");
 
         //perform your AJAX/Fetch login
     });
@@ -93,11 +101,14 @@ document.addEventListener("DOMContentLoaded", () => {
             }).then(function(response) {
                 buttonElement.classList.remove("form__button--loading");
                 buttonElement.disabled = false;
+                setFormMessage(signupForm, "error", response.text());
                 return response.text();
             }).then(function(text) {
-                console.log(text);
+                buttonElement.classList.remove("form__button--loading");
+                buttonElement.disabled = false;
+                setFormMessage(signupForm, "error", text);
             }).catch(function(error) {
-                setFormMessage(signupForm, "error", "Oops! Something went wrong. Please reload the page.");
+                setFormMessage(signupForm, "error", error);
             })
         } else {
             buttonElement.classList.remove("form__button--loading");
