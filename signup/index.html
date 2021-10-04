@@ -31,25 +31,27 @@
         <form class="form " id="signup">
             <h1 class="form__title">Signup</h1>
             <div class="form__input-group">
-                <input type="text" class="form__input" id="signupUsername" autofocus placeholder="Username">
+                <input type="text" class="form__input" id="signupUsername" autofocus placeholder="Username" name="username">
             </div>
             <div class="form__input-group">
-                <input type="text" class="form__input" autofocus placeholder="Email">
+                <input type="text" class="form__input" id="signupEmail" autofocus placeholder="Email" name="email">
             </div>
             <div class="form__input-group">
-                <input type="password" class="form__input" autofocus placeholder="Password">
+                <input type="password" class="form__input" id="signupPassword" autofocus placeholder="Password" name="password">
             </div>
             <div class="form__input-group">
-                <input type="password" class="form__input" autofocus placeholder="Confirm Password">
+                <input type="password" class="form__input" id="signupConfirmPassword" autofocus placeholder="Confirm Password" name="confirm-password">
             </div>
             <div class="form__radio-group">
-                <input class="form__radio--input" type="radio" value="option1" name="gender" id="male" checked=true>
+                <input class="form__radio--input" type="radio" value="true" name="gender" id="male" checked=true>
                 <label class="form__radio--label" for="male">Male</label>
-                <input class="form__radio--input" type="radio" value="option2" name="gender" id="female">
+                <input class="form__radio--input" type="radio" value="false" name="gender" id="female">
                 <label class="form__radio--label" for="female">Female</label>
             </div>
             <div class="form__message form__message--error"></div>
-            <button class="form__button" type="signup">Signup</button>
+            <button class="form__button" type="signup">
+                <span class="form__button--text">Signup</span>
+            </button>
             <p class="form__text">
                 <a class="form__link" id="linkLogin" class="form__link">Already have an account? Login</a>
             </p>

@@ -90,11 +90,9 @@ body {
 }
 
 .form__button {
+    position: relative;
     width: 100%;
     padding: 1rem 2rem;
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: #ffffff;
     border: none;
     border-radius: var(--border-radius);
     outline: none;
@@ -108,6 +106,48 @@ body {
 
 .form__button:active {
     transform: scale(0.98);
+}
+
+.form__button:disabled {
+    background: var(--color-error);
+}
+
+.form__button--text {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+    transition: all 0.2s;
+}
+
+.form__button--loading .form__button--text {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.form__button--loading::after {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    border: 4px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+    from {
+        transform: rotate(0turn);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
 }
 
 .form__text {
