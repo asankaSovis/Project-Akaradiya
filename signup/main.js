@@ -60,10 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 method: 'post',
                 body: formData
             }).then(function(response) {
-                return response.text();
                 buttonElement.classList.remove("form__button--loading");
                 buttonElement.disabled = false;
                 setFormMessage(login, "error", response.text());
+                window.location.href = '../';
             }).then(function(text) {
                 console.log(text);
                 buttonElement.classList.remove("form__button--loading");
@@ -102,7 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 buttonElement.classList.remove("form__button--loading");
                 buttonElement.disabled = false;
                 setFormMessage(signupForm, "error", response.text());
-                return response.text();
             }).then(function(text) {
                 buttonElement.classList.remove("form__button--loading");
                 buttonElement.disabled = false;
@@ -148,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function checkEmail(str) {
         return (str.length > 5 && !str.includes("<") && !str.includes(">") && str.includes("@"));
     }
+    
     function checkPassword(str) {
         return (isAllPresent(str) && !str.includes("<") && !str.includes(">"));
     }
