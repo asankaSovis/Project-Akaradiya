@@ -11,7 +11,9 @@ let mylink = window.location.pathname;
 
 try {
     var authPassword = userlink.split(mylink)[1].replace("?auth=", "");
+    console.log(authPassword);
     sendAuth(authPassword);
+    
 } catch (error) {
     console.log(error);
 }
@@ -25,9 +27,9 @@ function sendAuth(auth){
     xmlhttp.onreadystatechange=function(){
         if (xmlhttp.readyState == 4){
             if(xmlhttp.status == 200){
-                // response(xmlhttp.response.text().then(function(text) {
-                //     return text.split('"')[1];
-                // }));
+                response(xmlhttp.response.text().then(function(text) {
+                    return text.split('"')[1];
+                }));
             }
         }
     };
