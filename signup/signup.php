@@ -1,5 +1,5 @@
 <?php
-    $Servername='localhost';
+    $servername='localhost';
 	$username='root';
 	$password='Asanka123';
 	$dbname = "project_akaradiya";
@@ -36,7 +36,7 @@
         $sql = "INSERT INTO users (Email, PassWord, UserName, Gender)
         VALUES ('$email','$pword','$username','$gender')";
         if (mysqli_query($conn, $sql)) {
-            $error = "New record has been added successfully !";
+            $error = "<success>";
         } else {
             $error = "Error: " . $sql . ":-" . mysqli_error($conn);
         }

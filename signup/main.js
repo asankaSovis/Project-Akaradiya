@@ -1,3 +1,6 @@
+let userlink = window.location.href;
+let mylink = window.location.pathname;
+
 function setFormMessage(formElement, type, message) {
     const messageElement = formElement.querySelector(".form__message");
     const buttonElement = formElement.querySelector(".form__button");
@@ -28,6 +31,14 @@ function clearInputError(formElement) {
     buttonElement.disabled = false;
 }
 
+if (userlink.split(mylink)[1] === "?signup") {
+    const loginForm = document.querySelector("#login");
+    const signupForm = document.querySelector("#signup");
+
+    loginForm.classList.add("form--hidden");
+    signupForm.classList.remove("form--hidden");
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.querySelector("#login");
     const signupForm = document.querySelector("#signup");
@@ -42,6 +53,15 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         loginForm.classList.remove("form--hidden");
         signupForm.classList.add("form--hidden");
+    });
+
+    document.querySelector("#userpages").addEventListener("click", e => {
+        e.preventDefault();
+        if (document.getElementById("userpages__click").text === "Resend verification code") {
+            window.location.replace("../mail");
+        } else {
+            // Go to password reset
+        }
     });
 
     loginForm.addEventListener("submit", e => {
@@ -60,15 +80,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 method: 'post',
                 body: formData
             }).then(function(response) {
-                buttonElement.classList.remove("form__button--loading");
-                buttonElement.disabled = false;
-                setFormMessage(login, "error", response.text());
-                window.location.href = '../';
+                return response.text().then(function(text) {
+                    return text.split('"')[1];
+                })
             }).then(function(text) {
-                console.log(text);
                 buttonElement.classList.remove("form__button--loading");
                 buttonElement.disabled = false;
-                setFormMessage(login, "error", text);
+                if (text === "<notverified>") {
+                    setFormMessage(login, "error", "This email is not verified.");
+                    document.getElementById("userpages__click").text = "Resend verification code";
+                } else if (text === "<success>"){
+                    setFormMessage(login, "success", "Successfully logged in.");
+                }
+                else {
+                    setFormMessage(login, "error", text);
+                }
             }).catch(function(error) {
                 setFormMessage(loginForm, "error", "Oops! Something went wrong. Please reload the page.");
             })
@@ -99,15 +125,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 method: 'post',
                 body: formData
             }).then(function(response) {
-                buttonElement.classList.remove("form__button--loading");
-                buttonElement.disabled = false;
-                setFormMessage(signupForm, "error", response.text());
+                return response.text().then(function(text) {
+                    return text.split('"')[1];
+                })
             }).then(function(text) {
-                buttonElement.classList.remove("form__button--loading");
-                buttonElement.disabled = false;
-                setFormMessage(signupForm, "error", text);
+                if (text == "<success>") {
+                    buttonElement.classList.remove("form__button--loading");
+                    buttonElement.disabled = true;
+                    setFormMessage(signupForm, "success", "Successfully logged in.");
+                    window.location.replace("../mail?email=" + document.getElementById("email").value);
+                } else {
+                    buttonElement.classList.remove("form__button--loading");
+                    buttonElement.disabled = false;
+                    setFormMessage(signupForm, "error", text);
+                }
             }).catch(function(error) {
-                setFormMessage(signupForm, "error", error);
+                setFormMessage(signupForm, "error", "Oops! Something went wrong. Please reload the page.");
             })
         } else {
             buttonElement.classList.remove("form__button--loading");

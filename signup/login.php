@@ -20,9 +20,9 @@
     if (mysqli_num_rows($result) == 0) {
         $error = "Invalid Credentials";
     } elseif ($value == '1') {
-        $error = "This email is verified.";
+        $error = "<verified>";
     } else {
-        $error = "This email is not verified.";
+        $error = "<notverified>";
     }
 
     mysqli_close($conn);

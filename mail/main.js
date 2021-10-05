@@ -12,11 +12,15 @@ const authForm = document.querySelector("#authentication");
 
 authForm.addEventListener("submit", e => {
     e.preventDefault();
-    var message = "Attempting to send a verification email...";
-    setMessage(message, "success", true);
+    var message = "Attempting to send the email...";
+    setMessage(message, "success", false);
     buttonElement.classList.add("form__button--loading");
     if (checkEmail(document.getElementById("email").value)) {
-        sendMail(document.getElementById("email").value);
+        if (document.getElementById("title").innerHTML === "Reset Password") {
+            sendMail(document.getElementById("email").value, "pword");
+        } else {
+            sendMail(document.getElementById("email").value, "email");
+        }
     } else {
         var message = "You have entered an invalid email. Please check again.";
         buttonElement.classList.remove("form__button--loading");
@@ -25,17 +29,30 @@ authForm.addEventListener("submit", e => {
 })
 
 try {
-    var email = userlink.split(mylink)[1].replace("?email=", "");
-    document.getElementById("email").value = email;
-    buttonElement.click();
+    var text = userlink.split(mylink)[1];
+    if (text.includes("email")) {
+        if (text.replace("?email=", "") != "") {
+            document.getElementById("email").value = text.replace("?email=", "");
+            buttonElement.click();
+        }
+    } else if (text.includes("pword")) {
+        if (text.replace("?pword=", "") != "") {
+            document.getElementById("title").innerHTML = "Reset Password";
+            document.getElementById("email").value = text.replace("?pword=", "");
+            buttonElement.click();
+        }
+        else {
+            document.getElementById("title").innerHTML = "Reset Password";
+        }
+    }
 } catch (error) {
     console.log(error);
 }
 
-function sendMail(mailStr){
+function sendMail(mailStr, auth){
     xmlhttp = new XMLHttpRequest();
 
-    str = "email=" + encodeURIComponent(mailStr);
+    str = auth + "=" + encodeURIComponent(mailStr);
 
     xmlhttp.open("POST","sendmail.php", true);
     xmlhttp.onreadystatechange=function(){
@@ -50,13 +67,17 @@ function sendMail(mailStr){
 }
 
 function response(error) {
-    buttonElement.classList.remove("form__button--loading");
     console.log(error);
+    buttonElement.classList.remove("form__button--loading");
     if(error.includes("<success>")) {
-        var message = "A verification has been sent to your email. Please check your inbox.";
+        var message = "This email was sent successfully. Please check your inbox.";
         setMessage(message, "success", false);
     } else if (error.includes("<authed>")) {
         var message = "This email is already verified.";
+        setMessage(message, "error", false);
+    } else if (error.includes("<notauthed>")) {
+        var message = "You need to verify your email before resetting the password. Please verify first.";
+        document.getElementById("title").innerHTML = "Authenticate";
         setMessage(message, "error", false);
     } else if (error.includes("<nousers>")) {
         var message = "Could not verify your email. Check your email address again.";

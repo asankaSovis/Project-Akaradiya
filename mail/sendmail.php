@@ -10,11 +10,17 @@
         $error = 'Could not Connect MySql Server:' .mysql_error();
     }
 
-    if(isset($_POST['email'])) {
+    if(isset($_POST['email']) || isset($_POST['pword'])) {
         require_once './vendor/autoload.php';
         require_once './credential.php';
 
-        $email = $_POST['email'];
+        $email = "";
+
+        if (isset($_POST['email'])) {
+            $email = $_POST['email'];
+        } else {
+            $email = $_POST['pword'];
+        }
 
         $result = checkVerified($email, $conn);
 
@@ -23,16 +29,31 @@
         if ($value == null) {
             $error = "<nousers>";
         } else if ($value[0] == '1') {
-            $error = "<authed>";
+            if (isset($_POST['email'])) {
+                $error = "<authed>";
+            } else {
+                $heading = "Reset Your Akaradiya Account Password";
+                $mydirect = HOMEDIRECTORY;
+                $authLink = "$mydirect/verification?pword=$value[1]";
+                $text = readTemplate($value[2], $authLink);
+                $error = sendEmail($email, $heading, $text);
+            } 
         } else if ($value[0] == '0') {
-            $heading = "Verify Your Akaradiya Account";
-            $authLink = "'$value[1]'";
-            $text = $authLink;
-            $error = sendEmail($email, $heading, $text);
+            if (isset($_POST['pword']))
+            {
+                $error = "<notauthed>";
+            } else {
+                $heading = "Verify Your Akaradiya Account";
+                $mydirect = HOMEDIRECTORY;
+                $authLink = "$mydirect/verification?auth=$value[1]";
+                $text = readTemplate($value[2], $authLink);
+                $error = $text;
+                $error = sendEmail($email, $heading, $text);
+            }
         } else {
             $error = "<error>";
         }
-        var_dump($error);
+       var_dump($error);
     }
 
     function sendEmail($email, $heading, $text) {
@@ -50,6 +71,7 @@
             ->setFrom([EMAIL => 'Akaradiya Open Dictionary'])
             ->setTo([$email])
             ->setBody($text)
+            ->setContentType("text/html");
         ;
 
         // Send mail
@@ -62,7 +84,20 @@
     }
 
     function checkVerified($email, $conn) {
-        $sql = "SELECT Verified, PassWord FROM users WHERE Email='$email'";
+        $sql = "SELECT Verified, PassWord, UserName FROM users WHERE Email='$email'";
         return mysqli_query($conn, $sql);
+    }
+
+    function readTemplate($name, $link) {
+        $myfile = fopen("mail.html", "r") or die("Unable to open file!");
+        $str = "";
+        while(!feof($myfile)) {
+            $read = fgets($myfile);
+            $str = "$str$read";
+          }
+        fclose($myfile);
+        $str = str_replace("#user", $name, $str);
+        $str = str_replace("#link", $link, $str);
+        return $str;
     }
 ?>
