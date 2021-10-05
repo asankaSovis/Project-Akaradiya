@@ -1,6 +1,6 @@
 let userlink = window.location.href;
 let mylink = window.location.pathname;
-
+console.log('response');
 function setFormMessage(formElement, type, message) {
     const messageElement = formElement.querySelector(".form__message");
     const buttonElement = formElement.querySelector(".form__button");
@@ -106,9 +106,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         //perform your AJAX/Fetch login
     });
-
+    console.log('response');
     signupForm.addEventListener("submit", e => {
         e.preventDefault();
+        
         const buttonElement = signupForm.querySelector(".form__button");
         buttonElement.classList.add("form__button--loading");
         buttonElement.disabled = true;
@@ -126,9 +127,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: formData
             }).then(function(response) {
                 return response.text().then(function(text) {
+                    
                     return text.split('"')[1];
                 })
             }).then(function(text) {
+                //console.log(response);
                 if (text == "<success>") {
                     buttonElement.classList.remove("form__button--loading");
                     buttonElement.disabled = true;

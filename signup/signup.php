@@ -23,6 +23,8 @@
         $error = "This email is already registered.";
     }
 
+    $error = encrypt($pword);
+
     mysqli_close($conn);
     var_dump($error);
 
@@ -41,5 +43,13 @@
             $error = "Error: " . $sql . ":-" . mysqli_error($conn);
         }
         return $error;
+    }
+
+    function encrypt($password) {
+        return sodium_crypto_pwhash_str(
+            $password,
+            SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE,
+            SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE
+        );
     }
 ?>
