@@ -108,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
     signupForm.addEventListener("submit", e => {
+        console.log(response);
         e.preventDefault();
         
         const buttonElement = signupForm.querySelector(".form__button");
@@ -131,7 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     return text.split('"')[1];
                 })
             }).then(function(text) {
-                console.log(response);
                 if (text == "<success>") {
                     buttonElement.classList.remove("form__button--loading");
                     buttonElement.disabled = true;
