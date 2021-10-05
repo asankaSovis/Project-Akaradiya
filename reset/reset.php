@@ -17,7 +17,7 @@
     } else if (isset($_POST['reset'])) {
         $email = $_POST['email'];
         $pword = $_POST['password'];
-        $error = resetPword($email, $pword, $conn);
+        $error = resetPword($email, encrypt($pword), $conn);
     }
 
     mysqli_close($conn);
@@ -36,5 +36,9 @@
             $error = "<failed>";
         }
         return $error;
+    }
+
+    function encrypt($password) {
+        return password_hash($password, PASSWORD_BCRYPT);
     }
 ?>

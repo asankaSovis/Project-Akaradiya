@@ -16,14 +16,12 @@
     $gender = $_POST['gender'];
 
     if (checkEmail($email, $conn)) {
-        $error = signup($username, $email, $pword, $gender, $conn);
+        $error = signup($username, $email, encrypt($pword), $gender, $conn);
     }
     else
     {
         $error = "This email is already registered.";
     }
-
-    $error = encrypt($pword);
 
     mysqli_close($conn);
     var_dump($error);
@@ -46,10 +44,6 @@
     }
 
     function encrypt($password) {
-        return sodium_crypto_pwhash_str(
-            $password,
-            SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE,
-            SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE
-        );
+        return password_hash($password, PASSWORD_BCRYPT);
     }
 ?>

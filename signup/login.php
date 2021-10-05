@@ -15,12 +15,16 @@
 
     $result = checkEmail($email, $pword, $conn);
 
-    $value = mysqli_fetch_row($result)[0];
+    $value = mysqli_fetch_row($result);
 
     if (mysqli_num_rows($result) == 0) {
         $error = "Invalid Credentials";
-    } elseif ($value == '1') {
-        $error = "<verified>";
+    } elseif ($value[0] == '1') {
+        if (password_verify($pword, $value[1])) {
+            $error = "<verified>";
+        } else {
+            $error = "Invalid Credentials";
+        }
     } else {
         $error = "<notverified>";
     }
@@ -29,7 +33,7 @@
     var_dump($error);
 
     function checkEmail($email, $pword, $conn) {
-        $sql = "SELECT Verified FROM users WHERE Email='$email' AND PassWord='$pword'";
+        $sql = "SELECT Verified, PassWord FROM users WHERE Email='$email'";
         return mysqli_query($conn, $sql);
     }
 ?>

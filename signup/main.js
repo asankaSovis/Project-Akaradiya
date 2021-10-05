@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (document.getElementById("userpages__click").text === "Resend verification code") {
             window.location.replace("../mail");
         } else {
-            // Go to password reset
+            window.location.replace("../mail?pword=");
         }
     });
 
@@ -108,7 +108,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
     signupForm.addEventListener("submit", e => {
-        console.log(response);
         e.preventDefault();
         
         const buttonElement = signupForm.querySelector(".form__button");
@@ -128,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 body: formData
             }).then(function(response) {
                 return response.text().then(function(text) {
-                    
+                    console.log(text);
                     return text.split('"')[1];
                 })
             }).then(function(text) {
@@ -136,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     buttonElement.classList.remove("form__button--loading");
                     buttonElement.disabled = true;
                     setFormMessage(signupForm, "success", "Successfully logged in.");
-                    window.location.replace("../mail?email=" + document.getElementById("email").value);
+                    window.location.replace("../mail?email=" + document.getElementById("signupEmail").value);
                 } else {
                     buttonElement.classList.remove("form__button--loading");
                     buttonElement.disabled = false;

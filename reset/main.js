@@ -25,11 +25,13 @@ form.addEventListener("submit", e => {
     }
 })
 
+
 try {
     var password = userlink.split("?pword=")[1];
     var email = password.split("?email=")[1];
     var password = password.split("?email=")[0];
     verify(email, password);
+    
 } catch (error) {
     console.log(error);
     const errorForm = document.querySelector("#error");
@@ -66,6 +68,7 @@ function setMessage(message, type, button) {
 }
 
 function gotReply(reply) {
+    console.log(reply);
     if (reply.includes("int(1)")) {
         var message = "Please enter your new password and click Apply Changes.";
         setMessage(message, "success", false);
