@@ -11,7 +11,6 @@ let mylink = window.location.pathname;
 
 try {
     var authPassword = userlink.split(mylink)[1].replace("?auth=", "");
-    console.log(authPassword);
     sendAuth(authPassword);
     
 } catch (error) {
@@ -24,12 +23,10 @@ function sendAuth(auth){
     str = "q=" + encodeURIComponent(auth);
 
     xmlhttp.open("POST","authenticate.php", true);
-    xmlhttp.onreadystatechange=function(){
-        if (xmlhttp.readyState == 4){
+    xmlhttp.onreadystatechange=function() {
+        if (xmlhttp.readyState == 4) {
             if(xmlhttp.status == 200){
-                response(xmlhttp.response.text().then(function(text) {
-                    return text.split('"')[1];
-                }));
+                response(xmlhttp.response);
             }
         }
     };
@@ -39,9 +36,9 @@ function sendAuth(auth){
 
 function response(error) {
     buttonElement.classList.remove("form__button--loading");
-    
+    console.log(error);
     if(error.includes("<success>")) {
-        var message = "hello " + error + ", your email was successfully verified.";
+        var message = "hello " + error.split("<success>")[1].split('"')[0] + ", your email was successfully verified.";
         setMessage(message, "success", false);
     } else if (error.includes("<nousers>")) {
         var message = "Could not verify the email, maybe it's already verified?";

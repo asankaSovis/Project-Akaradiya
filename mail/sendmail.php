@@ -34,7 +34,7 @@
             } else {
                 $heading = "Reset Your Akaradiya Account Password";
                 $mydirect = HOMEDIRECTORY;
-                $authLink = "$mydirect/verification?pword=$value[1]";
+                $authLink = "$mydirect/reset?pword=$value[1]?email=$email";
                 $text = readTemplate($value[2], $authLink);
                 $error = sendEmail($email, $heading, $text);
             } 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="Viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Authentication</title>
+    <link rel="shortcut icon" href="../assets/favicon.ico">
+    <link rel="stylesheet" href="../main.css">
+</head>
+
+<body>
+    <div class="container">
+        <form class="form" id="edit">
+            <h1 class="form__title" id="title">Edit Information</h1>
+            <div class="form__input-group">
+                <input type="text" class="form__input" id="signupUsername" autofocus placeholder="Username" name="username">
+            </div>
+            <div class="form__radio-group" id="gender">
+                <input class="form__radio--input" type="radio" value="0" name="gender" id="male" checked=true>
+                <label class="form__radio--label" for="male">Male</label>
+                <input class="form__radio--input" type="radio" value="1" name="gender" id="female">
+                <label class="form__radio--label" for="female">Female</label>
+            </div>
+            <div class="form__message form__message--error"></div>
+            <button class="form__button" type="login">
+                <span class="form__button--text">Apply Changes</span>
+            </button>
+        </form>
+        <form class="form form--hidden" id="error">
+            <h1 class="form__title" id="title">Edit Information</h1>
+            <div class="form__message form__message--error" id="form__error">Oops! Something has happened. Please try again.</div>
+        </form>
+    </div>
+    <script src="./main.js"></script>
+</body>
