@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (text === "<notverified>") {
                     setFormMessage(login, "error", "This email is not verified.");
                     document.getElementById("userpages__click").text = "Resend verification code";
-                } else if (text === "<success>"){
+                } else if (text === "<verified>"){
                     setFormMessage(login, "success", "Successfully logged in.");
                 }
                 else {
