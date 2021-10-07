@@ -23,17 +23,15 @@ Refer to this if needed:
 -->
 
 <?php
+    // Calling the swiftmailer libraries and loading sensitive data
+    require_once './vendor/autoload.php';
+    require_once '../credential.php';
+    
     // Global variables
-
-    // IMPORTANT---------------
-    // Make sure to remove all the sensitive variables to the credentials.php in root
-    // for security reasons.
-    // ------------------------
-
-    $servername='localhost';
-    $username='root';
-    $password='Asanka123';
-    $dbname = "project_akaradiya";
+    $servername = SERVERNAME;
+    $username = USERNAME_SQL;
+    $password = PASSWORD_SQL;
+    $dbname = DBNAME;
     $error = "None";
 
     // Creating a connection to the database
@@ -50,9 +48,6 @@ Refer to this if needed:
     //
     if(isset($_POST['email']) || isset($_POST['pword'])) {
         // Checking if valid parameters are recieved
-        // Calling the swiftmailer libraries
-        require_once './vendor/autoload.php';
-        require_once './credential.php';
 
         //Extracting the email
         $email = "";

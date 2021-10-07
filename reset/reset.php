@@ -8,17 +8,14 @@ a user sent by the /reset/main.js file. -->
 ------------------------ -->
 
 <?php
+    // loading sensitive data
+    require_once '../credential.php';
+    
     // Global variables
-
-    // IMPORTANT---------------
-    // Make sure to remove all the sensitive variables to the credentials.php in root
-    // for security reasons.
-    // ------------------------
-
-    $servername='localhost';
-    $username='root';
-    $password='Asanka123';
-    $dbname = "project_akaradiya";
+    $servername = SERVERNAME;
+    $username = USERNAME_SQL;
+    $password = PASSWORD_SQL;
+    $dbname = DBNAME;
     $error = "None";
 
     // Creating a connection to the database

@@ -8,17 +8,14 @@ int(1) - The user exist and the user can be allowed to enter a new password
 ------------------------ -->
 
 <?php
+    // loading sensitive data
+    require_once '../credential.php';
+    
     // Global variables
-
-    // IMPORTANT---------------
-    // Make sure to remove all the sensitive variables to the credentials.php in root
-    // for security reasons.
-    // ------------------------
-
-    $servername='localhost';
-    $username='root';
-    $password='Asanka123';
-    $dbname = "project_akaradiya";
+    $servername = SERVERNAME;
+    $username = USERNAME_SQL;
+    $password = PASSWORD_SQL;
+    $dbname = DBNAME;
     $error = "None";
 
     // Creating a connection to the database
