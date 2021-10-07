@@ -68,31 +68,31 @@ There should be the functionality to reset the password. When clicked, an email 
 Passwords must be stored encrypted in the database.
 
 ## File Structure
-akaradiya/404error/404.html [The master 404 error]
-akaradiya/assets/images/placeholder.png [Random placeholder image]
-akaradiya/assets/favicon.ico [Master icon file]
-akaradiya/edit/edit.php [PHP of the user information editing form] ✓
-akaradiya/edit/index.html [HTML of the user information editing form] ✓
-akaradiya/edit/main.js [JS of the user information editing form] ✓
-akaradiya/mail/vendor [Files of Swiftmailer library] ✓
-akaradiya/mail/composer.json [  "   ] ✓
-akaradiya/mail/composer.lock [  "   ] ✓
-akaradiya/mail/sendmail.php [PHP of the email sending form] ✓
-akaradiya/mail/index.html [HTML of the email sending form] ✓
-akaradiya/mail/mail.html [HTML structure of the email to be sent to the user] ✓
-akaradiya/mail/main.js [JS of the email sending form] ✓
-akaradiya/reset/index.html [HTML of the reset of user password form] ✓
-akaradiya/reset/reset.php [PHP of the reset of user password form] ✓
-akaradiya/reset/main.js [JS of the reset of user password form] ✓
-akaradiya/signup/index.html [HTML of the signup/login form] ✓
-akaradiya/signup/login.php [PHP of the login form] ✓
-akaradiya/signup/signup.php [PHP of the signup form] ✓
-akaradiya/signup/main.js [JS of the signup/login form] ✓
-akaradiya/verification/index.html [HTML of the verification form] ✓
-akaradiya/verification/authentication.php [PHP of the verification form] ✓
-akaradiya/verification/main.js [JS of the verification form] ✓
-akaradiya/.gitignore [Gitignore file]
-akaradiya/.htaccess [Apache configuration file]
-akaradiya/index.html [Homepage HTML file]
-akaradiya/main.css [Main CSS file to be used throughout the project] ✓
-akaradiya/README.md [Readme file of Github {This file}]
+- akaradiya/404error/404.html [The master 404 error]
+- akaradiya/assets/images/placeholder.png [Random placeholder image]
+- akaradiya/assets/favicon.ico [Master icon file]
+- akaradiya/edit/edit.php [PHP of the user information editing form] ✓
+- akaradiya/edit/index.html [HTML of the user information editing form] ✓
+- akaradiya/edit/main.js [JS of the user information editing form] ✓
+- akaradiya/mail/vendor [Files of Swiftmailer library] ✓
+- akaradiya/mail/composer.json [  "   ] ✓
+- akaradiya/mail/composer.lock [  "   ] ✓
+- akaradiya/mail/sendmail.php [PHP of the email sending form] ✓
+- akaradiya/mail/index.html [HTML of the email sending form] ✓
+- akaradiya/mail/mail.html [HTML structure of the email to be sent to the user] ✓
+- akaradiya/mail/main.js [JS of the email sending form] ✓
+- akaradiya/reset/index.html [HTML of the reset of user password form] ✓
+- akaradiya/reset/reset.php [PHP of the reset of user password form] ✓
+- akaradiya/reset/main.js [JS of the reset of user password form] ✓
+- akaradiya/signup/index.html [HTML of the signup/login form] ✓
+- akaradiya/signup/login.php [PHP of the login form] ✓
+- akaradiya/signup/signup.php [PHP of the signup form] ✓
+- akaradiya/signup/main.js [JS of the signup/login form] ✓
+- akaradiya/verification/index.html [HTML of the verification form] ✓
+- akaradiya/verification/authentication.php [PHP of the verification form] ✓
+- akaradiya/verification/main.js [JS of the verification form] ✓
+- akaradiya/.gitignore [Gitignore file]
+- akaradiya/.htaccess [Apache configuration file]
+- akaradiya/index.html [Homepage HTML file]
+- akaradiya/main.css [Main CSS file to be used throughout the project] ✓
+- akaradiya/README.md [Readme file of Github {This file}]
