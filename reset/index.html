@@ -1,3 +1,8 @@
+<!-- This is the reset webpage.
+This website loads when the user clicks on a password reset link emailed to them.
+This will handle everything related to resetting the password
+of an existing user -->
+
 <!DOCTYPE html>
 
 <head>
@@ -11,21 +16,24 @@
 <body>
     <div class="container">
         <form class="form" id="reset">
-            <h1 class="form__title" id="title">Reset Password</h1>
-            <div class="form__input-group">
+            <!-- Password reset form ID=reset -->
+            <h1 class="form__title" id="title">Reset Password</h1> <!-- Title of the form -->
+            <div class="form__input-group"> <!-- Input for the password. ID=password NAME=password -->
                 <input type="password" class="form__input" id="signupPassword" autofocus placeholder="Password" name="password">
             </div>
-            <div class="form__input-group">
+            <div class="form__input-group"> <!-- Input to confirm password. ID=signupConformPassword NAME=conform-password -->
                 <input type="password" class="form__input" id="signupConfirmPassword" autofocus placeholder="Confirm Password" name="confirm-password">
             </div>
-            <div class="form__message form__message--error"></div>
-            <button class="form__button" type="login">
+            <div class="form__message form__message--error"></div> <!-- Message for user. Set through CSS -->
+            <button class="form__button" type="login"> <!-- Reset button -->
                 <span class="form__button--text">Apply Changes</span>
             </button>
         </form>
         <form class="form form--hidden" id="error">
-            <h1 class="form__title" id="title">Reset Password</h1>
+            <!-- Error form ID=error -->
+            <h1 class="form__title" id="title">Reset Password</h1> <!-- Title of the form -->
             <div class="form__message form__message--error" id="form__error">Oops! Something has happened. Please try again.</div>
+             <!-- ^ Message for user. Set through CSS ^ -->
         </form>
     </div>
     <script src="./main.js"></script>
