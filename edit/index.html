@@ -1,3 +1,8 @@
+<!-- This is the Edit webpage.
+This website loads when the user clicks on a link to edit user details.
+This website is used to edit the information of the user.
+This will extract the content of the parameters passed from the link to know which profile to edit. -->
+
 <!DOCTYPE html>
 
 <head>
@@ -11,24 +16,27 @@
 <body>
     <div class="container">
         <form class="form" id="edit">
-            <h1 class="form__title" id="title">Edit Information</h1>
-            <div class="form__input-group">
+            <!-- Edit form -->
+            <h1 class="form__title" id="title">Edit Information</h1> <!-- Form heading -->
+            <div class="form__input-group"> <!-- Input for the username. ID=signupUsername NAME=username -->
                 <input type="text" class="form__input" id="signupUsername" autofocus placeholder="Username" name="username">
             </div>
-            <div class="form__radio-group" id="gender">
+            <div class="form__radio-group" id="gender"> <!-- Radio buttons to select gender (Male, Female) ID1=male ID2=female -->
                 <input class="form__radio--input" type="radio" value="0" name="gender" id="male" checked=true>
                 <label class="form__radio--label" for="male">Male</label>
                 <input class="form__radio--input" type="radio" value="1" name="gender" id="female">
                 <label class="form__radio--label" for="female">Female</label>
             </div>
-            <div class="form__message form__message--error"></div>
-            <button class="form__button" type="login">
+            <div class="form__message form__message--error"></div> <!-- Message for user. Set through CSS -->
+            <button class="form__button" type="login"> <!-- Buttton to direct user to homepage -->
                 <span class="form__button--text">Apply Changes</span>
             </button>
         </form>
         <form class="form form--hidden" id="error">
-            <h1 class="form__title" id="title">Edit Information</h1>
+            <!-- Error form -->
+            <h1 class="form__title" id="title">Edit Information</h1> <!-- Form heading -->
             <div class="form__message form__message--error" id="form__error">Oops! Something has happened. Please try again.</div>
+             <!-- ^Message for user. Set through CSS^ -->
         </form>
     </div>
     <script src="./main.js"></script>

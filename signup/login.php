@@ -1,39 +1,73 @@
+<!-- This php will handle all the functions related to login
+a user sent by the /signup/main.js file. -->
+
+<!-- ERROR CODES-------------
+<verified> - The user is verified and credentials are correct. Can log in
+<notverified> - The user is not verified. Have to show the resend verification link
+<error> - Any other error(Including wrong credentials. This is to protect user data)
+------------------------ -->
+
 <?php
+    // Global variables
+
+    // IMPORTANT---------------
+    // Make sure to remove all the sensitive variables to the credentials.php in root
+    // for security reasons.
+    // ------------------------
+
     $servername='localhost';
     $username='root';
     $password='Asanka123';
     $dbname = "project_akaradiya";
     $error = "None";
 
+    // Creating a connection to the database
     $conn=mysqli_connect($servername,$username,$password,"$dbname");
     if(!$conn) {
         $error = 'Could not Connect MySql Server:' .mysql_error();
     }
 
-    $email = $_POST['email'];
-    $pword = $_POST['password'];
+    $email = $_POST['email']; // Reading the POST data JS sent with 'auth' token
+    $pword = $_POST['password']; // Reading the POST data JS sent with 'auth' token
 
-    $result = checkEmail($email, $pword, $conn);
+    $result = checkEmail($email, $pword, $conn); // Calling checkEmail function to check if parameters are valid
 
-    $value = mysqli_fetch_row($result);
+    $value = mysqli_fetch_row($result); // Extracts the username to send to JS back
 
+    // Error handling
     if (mysqli_num_rows($result) == 0) {
+        // No users with this credentials
         $error = "Invalid Credentials";
     } elseif ($value[0] == '1') {
         if (password_verify($pword, $value[1])) {
+            // Execute the query and validation success
             $error = "<verified>";
         } else {
+            // An error happened
             $error = "Invalid Credentials";
         }
     } else {
+        // User is not verified
         $error = "<notverified>";
     }
 
+    // Closing the connection and dumping the error to POST
     mysqli_close($conn);
     var_dump($error);
 
+    // End of code. Start of function definitions.
+    /////////////////////////////////////////////////////////////////////////
+
     function checkEmail($email, $pword, $conn) {
+        // Checks if the user exist and is verified
+        // Accepts the email as (string)email, password as (string)pword and connection as (SQL Connection)conn
+        // Returns the data returned by SQL query as SQL data
+        // Note: The number of rows can be compared to 0 and decide if the user exists
+        // Note2: Returned rows contain if they are verified. This can be used to determine if 
+        // user is unverified
+        //
         $sql = "SELECT Verified, PassWord FROM users WHERE Email='$email'";
+        // User exist
         return mysqli_query($conn, $sql);
     }
 ?>

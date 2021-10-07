@@ -1,4 +1,8 @@
+/* The main css styling to be used across the website.
+This file is referenced by all other HTML files in the website. */
+
 body {
+    /* Defining the colour palette and styling */
     --color-primary: #009579;
     --color-primary-dark: #007f67;
     --color-primary-light: #56a899;
@@ -7,6 +11,7 @@ body {
     --color-success: #4bb544;
     --border-radius: 4px;
 
+    /* Defining the main parameters of the website */
     margin: 0;
     height: 100vh;
     display: flex;
@@ -18,6 +23,7 @@ body {
 }
 
 .container {
+    /* Styling for the form container */
     width: 400px;
     max-width: 400px;
     margin: 1rem;
@@ -30,45 +36,55 @@ body {
 .container,
 .form__input,
 .form__button {
+    /* Defining the fonts for the container, inputs and button */
     font: 500 1rem 'Quicksand', sans-serif;
 }
 
 .form--hidden {
+    /* What to do when form--hidden parameter is given (Hide) */
     display: none;
 }
 
 .form > *:first-child {
+    /* Positioning the topmost item within the form */
     margin-top: 0;
 }
 
 .form > *:last-child {
+    /* Positioning the bottommost item within the form */
     margin-bottom: 0;
 }
 
 .form__title {
+    /* Styling for the form__title class */
     margin-bottom: 2rem;
     text-align: center;
 }
 
 .form__message {
+    /* Styling for the form__message class */
     padding-top: 15px;
     text-align: center;
     margin-bottom: 1rem;
 }
 
 .form__message--success {
+    /* Styling for the form__message--success parameter */
     color: var(--color-success)
 }
 
 .form__message--error {
+    /* Styling for the form__message--error parameter */
     color: var(--color-error)
 }
 
 .form__input-group {
+    /* Styling for the form__input-group class */
     margin-bottom: 1rem;
 }
 
 .form__input {
+    /* Styling for the form__input class */
     display: block;
     width: 100%;
     padding: 0.75rem;
@@ -81,16 +97,19 @@ body {
 }
 
 .form__input:focus {
+    /* Styling for the focus action of form__input class */
     border-color: var(--color-primary);
     background: #ffffff;
 }
 
 .form__input--error {
+    /* Styling for the form__input--error parameter */
     color: var(--color-error);
     border-color: var(--color-error);
 }
 
 .form__button {
+    /* Styling for the form__button class */
     position: relative;
     width: 100%;
     padding: 1rem 2rem;
@@ -102,19 +121,23 @@ body {
 }
 
 .form__button:hover {
+    /* Styling for the hover action of form__button class */
     background: var(--color-primary-dark);
 }
 
 .form__button:active {
+    /* Styling for the active action of form__button class */
     transform: scale(0.98);
 }
 
 .form__button:disabled {
+    /* Styling for the disabled action of form__button class */
     background: var(--color-primary-light);
     cursor: auto;
 }
 
 .form__button--text {
+    /* Styling for the form__button--text parameter */
     font-weight: bold;
     font-size: 1.1rem;
     color: #ffffff;
@@ -122,11 +145,13 @@ body {
 }
 
 .form__button--loading .form__button--text {
+    /* Styling for the form__button--loading and form__button--text parameters */
     visibility: hidden;
     opacity: 0;
 }
 
 .form__button--loading::after {
+    /* Styling for the after action of form__button--loading parameter */
     content: "";
     position: absolute;
     width: 16px;
@@ -143,6 +168,7 @@ body {
 }
 
 @keyframes button-loading-spinner {
+    /* Action for the button-loading-spinner call */
     from {
         transform: rotate(0turn);
     }
@@ -153,20 +179,24 @@ body {
 }
 
 .form__text {
+    /* Styling for the form__text class */
     text-align: center;
 }
 
 .form__link {
+    /* Styling for the form__link class */
     color: var(--colour-secondary);
     text-decoration: none;
     cursor: pointer;
 }
 
 .form__link:hover {
+    /* Styling for the hover action of form__link class */
     text-decoration: underline;
 }
 
 .form__radio-group {
+    /* Styling for the form__radio-group class */
     display: inline-flex;
     overflow: hidden;
     border-radius: 20px;
@@ -174,10 +204,12 @@ body {
 }
 
 .form__radio--input {
+    /* Styling for the form__radio--input parameter */
     display:none;
 }
 
 .form__radio--label {
+    /* Styling for the form__radio--label parameter */
     padding: 10px 20px;
     font-size: 14px;
     font: 500 1rem 'Quicksand', sans-serif;
@@ -188,9 +220,11 @@ body {
 }
 
 .form__radio--label:not(:last-of-type) {
+    /* Styling for the form__radio--label parameter when last-of-type flag is not set */
     border-right: 1px solid var(--color-primary-dark);
 }
 
 .form__radio--input:checked + .form__radio--label {
+    /* Styling for the checked action of form__radio--input parameter and form__radio--label */
     background: var(--color-primary-dark);
 }
