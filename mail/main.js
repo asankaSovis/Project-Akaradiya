@@ -31,37 +31,10 @@ setMessage(message, "success", false); //User green colour text and disable butt
 let userlink = window.location.href; //Link we got when user clicked on the link
 let mylink = window.location.pathname; //Link where the website actually reside
 
-try {
-    var text = userlink.split(mylink)[1];
-
-    // If the link contains the email token, then we must remain in the verification stage
-    if (text.includes("email")) {
-        // If the email token came with some parameters, we set the parameter to textbox and
-        // perform a button click
-        if (text.replace("?email=", "") != "") {
-            document.getElementById("email").value = text.replace("?email=", "");
-            buttonElement.click();
-        }
-    } else if (text.includes("pword")) {
-        // If the link contains a password token, then we must switch to password reset stage
-        if (text.replace("?pword=", "") != "") {
-            // If a parameter came with pword token, we set the parameter to textbox and
-            // perform a button click
-            document.getElementById("title").innerHTML = "Reset Password";
-            document.getElementById("email").value = text.replace("?pword=", "");
-            buttonElement.click();
-        }
-        else {
-            // If no parameter came, we simply switch stages
-            document.getElementById("title").innerHTML = "Reset Password";
-        }
-    }
-} catch (error) {
-    // In theory, an error must not occur, but just in case ㄟ(▔,▔ )ㄏ
-    console.log(error);
-}
-
-// End of code. Start of event listeners.
+// Event Listeners
+// IMPORTANT****
+// Have to define button click event before going to a code which autoclick the button.
+// This is why the event listener code is here.
 /////////////////////////////////////////////////////////////////////////
 
 authForm.addEventListener("submit", e => {
@@ -95,7 +68,39 @@ authForm.addEventListener("submit", e => {
     }
 })
 
-// End of event listeners. Start of functions.
+// Code again
+/////////////////////////////////////////////////////////////////////////
+
+try {
+    var text = userlink.split(mylink)[1];
+    // If the link contains the email token, then we must remain in the verification stage
+    if (text.includes("email")) {
+        // If the email token came with some parameters, we set the parameter to textbox and
+        // perform a button click
+        if (text.replace("?email=", "") != "") {
+            document.getElementById("email").value = text.replace("?email=", "");
+            buttonElement.click();
+        }
+    } else if (text.includes("pword")) {
+        // If the link contains a password token, then we must switch to password reset stage
+        if (text.replace("?pword=", "") != "") {
+            // If a parameter came with pword token, we set the parameter to textbox and
+            // perform a button click
+            document.getElementById("title").innerHTML = "Reset Password";
+            document.getElementById("email").value = text.replace("?pword=", "");
+            buttonElement.click();
+        }
+        else {
+            // If no parameter came, we simply switch stages
+            document.getElementById("title").innerHTML = "Reset Password";
+        }
+    }
+} catch (error) {
+    // In theory, an error must not occur, but just in case ㄟ(▔,▔ )ㄏ
+    console.log(error);
+}
+
+// End of event listeners and code. Start of functions.
 /////////////////////////////////////////////////////////////////////////
 
 function sendMail(mailStr, auth){

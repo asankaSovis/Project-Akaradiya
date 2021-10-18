@@ -1,12 +1,13 @@
-<!-- This php will handle all the functions related to signup
-a user sent by the /signup/main.js file. -->
-
-<!-- ERROR CODES-------------
-<success> - The credentials are accepted by MySQL and user is created
-<error> - Any other error(Including existing credentials. This is to protect user data)
------------------------- -->
-
 <?php
+
+    // <!-- This php will handle all the functions related to signup
+    // a user sent by the /signup/main.js file. -->
+
+    // <!-- ERROR CODES-------------
+    // <success> - The credentials are accepted by MySQL and user is created
+    // <error> - Any other error(Including existing credentials. This is to protect user data)
+    // ------------------------ -->
+
     // loading sensitive data
     require_once '../credential.php';
     

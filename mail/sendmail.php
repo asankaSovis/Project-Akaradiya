@@ -1,28 +1,29 @@
-<!-- This php will handle all the functions related to emailing
-a user sent by the /mail/main.js file. -->
-
-<!-- ERROR CODES-------------
-<success> - Email was sent successfully (Both verify and reset)
-<authed> - The email is already verified (Only for verify)
-<notauthed> - The email is not verified yet and has to be verified before resetting the password (Only for reser)
-<nousers> - The email does not exist in the database (Both verify and reset)
-<error> - An error occured (Both verify and reset)
-------------------------
-
-Note: Note that this file requires the mail.html file to be present in this folder.
-This file contains the structure of email that has to be sent to the user.
-Make sure to edit that file if you need to modify the email that the user recieves.
-
-Note2: This file also require the Swiftmailer library to be installed in this folder.
-If it doesn't exist, refer to this video:
-        https://www.youtube.com/watch?v=7WANMTdxBws
-For this to work, you also need the Composer package manager to be installed in the computer
-Refer to this if needed:
-        https://www.youtube.com/watch?v=-6fv7F1s1ro
-        
--->
-
 <?php
+
+    // <!-- This php will handle all the functions related to emailing
+    // a user sent by the /mail/main.js file. -->
+
+    // <!-- ERROR CODES-------------
+    // <success> - Email was sent successfully (Both verify and reset)
+    // <authed> - The email is already verified (Only for verify)
+    // <notauthed> - The email is not verified yet and has to be verified before resetting the password (Only for reser)
+    // <nousers> - The email does not exist in the database (Both verify and reset)
+    // <error> - An error occured (Both verify and reset)
+    // ------------------------
+
+    // Note: Note that this file requires the mail.html file to be present in this folder.
+    // This file contains the structure of email that has to be sent to the user.
+    // Make sure to edit that file if you need to modify the email that the user recieves.
+
+    // Note2: This file also require the Swiftmailer library to be installed in this folder.
+    // If it doesn't exist, refer to this video:
+    //         https://www.youtube.com/watch?v=7WANMTdxBws
+    // For this to work, you also need the Composer package manager to be installed in the computer
+    // Refer to this if needed:
+    //         https://www.youtube.com/watch?v=-6fv7F1s1ro
+            
+    // -->
+
     // Calling the swiftmailer libraries and loading sensitive data
     require_once './vendor/autoload.php';
     require_once '../credential.php';

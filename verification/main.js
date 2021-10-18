@@ -38,7 +38,18 @@ try {
 // ****MAKE SURE TO ADD THE BUTTON SUBMIT CODE HERE****
 // --------------------
 
-// End of code. Start of function definitions.
+// End of code. Start of event handlers.
+/////////////////////////////////////////////////////////////////////////
+
+form.addEventListener("submit", e => {
+    // On click of submit button
+    e.preventDefault();
+
+    // Go to Homepage
+    window.location.href = '../';
+})
+
+// End of event handlers. Start of function definitions.
 /////////////////////////////////////////////////////////////////////////
 
 function sendAuth(auth){
@@ -74,7 +85,7 @@ function response(error) {
     // Returns null
     //
     buttonElement.classList.remove("form__button--loading"); // When the reply is removed, the loading animation is removed from button
-    // console.log(error);
+     console.log(error);
 
     // ERROR CODES-------------
     // <success> - Verified successfully
@@ -84,7 +95,8 @@ function response(error) {
 
     // Checks the error and adjust interface accordingly
     if(error.includes("<success>")) {
-        var message = "hello " + error.split("<success>")[1].split('"')[0] + ", your email was successfully verified.";
+        console.log(error);
+        var message = "Hello " + error.split("<success>")[1].split('"')[0] + ", your email was successfully verified.";
         setMessage(message, "success", false);
     } else if (error.includes("<nousers>")) {
         var message = "Could not verify the email, maybe it's already verified?";

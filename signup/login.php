@@ -1,13 +1,14 @@
-<!-- This php will handle all the functions related to login
-a user sent by the /signup/main.js file. -->
-
-<!-- ERROR CODES-------------
-<verified> - The user is verified and credentials are correct. Can log in
-<notverified> - The user is not verified. Have to show the resend verification link
-<error> - Any other error(Including wrong credentials. This is to protect user data)
------------------------- -->
-
 <?php
+
+    // <!-- This php will handle all the functions related to login
+    // a user sent by the /signup/main.js file. -->
+
+    // <!-- ERROR CODES-------------
+    // <verified> - The user is verified and credentials are correct. Can log in
+    // <notverified> - The user is not verified. Have to show the resend verification link
+    // <error> - Any other error(Including wrong credentials. This is to protect user data)
+    // ------------------------ -->
+
     // loading sensitive data
     require_once '../credential.php';
     

@@ -1,13 +1,14 @@
-<!-- This php will handle all the functions related to authenticating
-a user sent by the /verification/main.js file. -->
-
-<!-- ERROR CODES-------------
-<success> - Verified successfully
-<nouser> - User doesn't exist (This is when query for an UNVERIFIED user with this auth details doesn't exist)
-<error> - Any other error
------------------------- -->
-
 <?php
+
+    // <!-- This php will handle all the functions related to authenticating
+    // a user sent by the /verification/main.js file. -->
+
+    // <!-- ERROR CODES-------------
+    // <success> - Verified successfully
+    // <nouser> - User doesn't exist (This is when query for an UNVERIFIED user with this auth details doesn't exist)
+    // <error> - Any other error
+    // ------------------------ -->
+
     // loading sensitive data
     require_once '../credential.php';
     

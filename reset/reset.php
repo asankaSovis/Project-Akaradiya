@@ -1,13 +1,14 @@
-<!-- This php will handle all the functions related to resetting the password of
-a user sent by the /reset/main.js file. -->
-
-<!-- ERROR CODES-------------
-// int(1) - The user exist and the user can be allowed to enter a new password
-// <success> - The credentials are accepted by MySQL and Password is reset
-// <failed> - Any other error
------------------------- -->
-
 <?php
+
+    // <!-- This php will handle all the functions related to resetting the password of
+    // a user sent by the /reset/main.js file. -->
+
+    // <!-- ERROR CODES-------------
+    // // int(1) - The user exist and the user can be allowed to enter a new password
+    // // <success> - The credentials are accepted by MySQL and Password is reset
+    // // <failed> - Any other error
+    // ------------------------ -->
+
     // loading sensitive data
     require_once '../credential.php';
     
