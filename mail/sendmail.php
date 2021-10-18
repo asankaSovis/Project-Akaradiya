@@ -58,6 +58,9 @@
             $email = $_POST['pword'];
         }
 
+        // Sanitization
+        $email = mysqli_real_escape_string($conn, $email);
+
         // Verifying the email first by passing the email to checkVerified function
         $result = checkVerified($email, $conn); //Stores the data retrieved from the query
         // Note: This contains the verify state of email if the email exist, and NULL if
@@ -106,6 +109,9 @@
             // On error
             $error = "<error>";
         }
+    } else {
+        // On error
+        $error = "<error>";
     }
 
     // Dumping the error to POST and closing the connection

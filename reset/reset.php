@@ -34,6 +34,11 @@
     if (isset($_POST['verify'])) {
         $email = $_POST['email'];
         $pword = $_POST['password'];
+
+        // Sanitization
+        $email = mysqli_real_escape_string($conn, $email);
+        $pword = mysqli_real_escape_string($conn, $pword);
+
         $error = checkEmail($email, $pword, $conn);
     } else if (isset($_POST['reset'])) {
         // IMPORTANT-----------
@@ -44,6 +49,11 @@
         // --------------------
         $email = $_POST['email'];
         $pword = $_POST['password'];
+
+        // Sanitization
+        $email = mysqli_real_escape_string($conn, $email);
+        $pword = mysqli_real_escape_string($conn, $pword);
+
         $error = resetPword($email, encrypt($pword), $conn);
     }
 

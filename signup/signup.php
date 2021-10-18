@@ -29,6 +29,12 @@
     $pword = $_POST['password']; // Reading the POST data JS sent with 'auth' token
     $gender = $_POST['gender']; // Reading the POST data JS sent with 'auth' token
 
+    // Sanitization
+    $email = mysqli_real_escape_string($conn, $email);
+    $pword = mysqli_real_escape_string($conn, $pword);
+    $username = mysqli_real_escape_string($conn, $username);
+    $gender = mysqli_real_escape_string($conn, $gender);
+
      // Calling checkEmail function to check if a user already exist
     if (checkEmail($email, $conn)) {
         // If the parameters are valid and unique, account is created

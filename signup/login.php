@@ -28,6 +28,10 @@
     $email = $_POST['email']; // Reading the POST data JS sent with 'auth' token
     $pword = $_POST['password']; // Reading the POST data JS sent with 'auth' token
 
+    // Sanitization
+    $email = mysqli_real_escape_string($conn, $email);
+    $pword = mysqli_real_escape_string($conn, $pword);
+
     $result = checkEmail($email, $pword, $conn); // Calling checkEmail function to check if parameters are valid
 
     $value = mysqli_fetch_row($result); // Extracts the username to send to JS back

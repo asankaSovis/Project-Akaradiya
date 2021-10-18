@@ -36,6 +36,11 @@
         // to pass on to the checkEmail function
         $email = $_POST['email'];
         $pword = $_POST['password'];
+
+        // Sanitization
+        $email = mysqli_real_escape_string($conn, $email);
+        $pword = mysqli_real_escape_string($conn, $pword);
+
         $error = checkEmail($email, $pword, $conn);
     } else if (isset($_POST['edit'])) {
         // If JS wants to edit the users information, we're extracting the information to
@@ -46,6 +51,13 @@
         $pword = $_POST['password'];
         $username = $_POST['username'];
         $gender = $_POST['gender'];
+
+        // Sanitization
+        $email = mysqli_real_escape_string($conn, $email);
+        $pword = mysqli_real_escape_string($conn, $pword);
+        $username = mysqli_real_escape_string($conn, $username);
+        $gender = mysqli_real_escape_string($conn, $gender);
+
         $error = editInfo($email, $pword, $gender, $username, $conn);
     }
 

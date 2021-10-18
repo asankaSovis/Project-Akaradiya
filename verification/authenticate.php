@@ -28,6 +28,9 @@
     $auth = $_POST['auth']; // Reading the POST data JS sent with 'auth' token
     // Note: This is the authentication token it recieved from URL
 
+    // Sanitization
+    $auth = mysqli_real_escape_string($conn, $auth);
+
     $result = checkVerified($auth, $conn); // Calling check verified function to check validity of our operation
     $value = mysqli_fetch_row($result)[0]; // Extracts the username to send to JS back
     $sql = "UPDATE users SET Verified=1 WHERE PassWord='$auth'"; // Query to verify user
