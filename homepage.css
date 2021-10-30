@@ -81,6 +81,13 @@ body {
     font-weight: bold;
 }
 
+.nav__link {
+    /* Styling for the form__link class */
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .form__button {
     /* Styling for the form__button class */
     position: relative;

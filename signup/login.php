@@ -12,6 +12,8 @@
     // loading sensitive data
     require_once '../credential.php';
     
+    session_start();
+
     // Global variables
     $servername = SERVERNAME;
     $username = USERNAME_SQL;
@@ -44,6 +46,7 @@
         if (password_verify($pword, $value[1])) {
             // Execute the query and validation success
             $error = "<verified>";
+            $_SESSION['username'] = $email;
         } else {
             // An error happened
             $error = "Invalid Credentials";
