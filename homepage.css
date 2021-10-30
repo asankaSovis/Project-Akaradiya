@@ -1,17 +1,18 @@
 html,
 body {
     /* Defining the colour palette and styling */
-    --color-primary: #009579;
-    --color-primary-dark: #007f67;
-    --color-primary-light: #56a899;
-    --colour-secondary: #252c6a;
+    --color-primary: #c3aad1;
+    --color-primary-dark: #929fd1;
+    --color-primary-light: #e7c7d7;
+    --colour-secondary: #9ad3ca;
+    --colour-secondary-light: #d7eae4;
     --color-error: #cc3333;
     --color-success: #4bb544;
-    --border-radius: 4px;
+    --border-radius: 25px;
 
     margin: 0;
-    font-family: sans-serif;
-    font-size: 16px;
+    font-family: 'Noto Sans Mono', monospace;
+    font-size: 15px;
     background: #333333;
     --nav-height: 70px;
 }
@@ -31,7 +32,7 @@ body {
 
 .hero {
     top: 0;
-    background-image: url("./assets/images/placeholder.png");
+    background-image: url("./assets/images/hero.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -65,7 +66,17 @@ body {
 .para__text {
     padding: 0 30% 20px;
     text-align: center;
-    color: #7b3f3f;
+    color: #910d0d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.head__text {
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 50px;
+    padding: 0 30%;
+    text-align: center;
+    color: #931c1c;
     text-decoration: none;
     font-weight: bold;
 }
@@ -114,7 +125,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background: #009578;
+    background: var(--color-primary-dark);
     display: flex;
     align-items: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);

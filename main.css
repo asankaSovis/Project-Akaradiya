@@ -3,13 +3,14 @@ This file is referenced by all other HTML files in the website. */
 
 body {
     /* Defining the colour palette and styling */
-    --color-primary: #009579;
-    --color-primary-dark: #007f67;
-    --color-primary-light: #56a899;
-    --colour-secondary: #252c6a;
+    --color-primary: #c3aad1;
+    --color-primary-dark: #929fd1;
+    --color-primary-light: #e7c7d7;
+    --colour-secondary: #9ad3ca;
+    --colour-secondary-light: #d7eae4;
     --color-error: #cc3333;
     --color-success: #4bb544;
-    --border-radius: 4px;
+    --border-radius: 25px;
 
     /* Defining the main parameters of the website */
     margin: 0;
@@ -19,6 +20,7 @@ body {
     justify-content: center;
     font-size: 18px;
     background: var(--color-primary);
+    background-image: url("./assets/images/background.png");
     background-size: cover;
 }
 
@@ -185,7 +187,7 @@ body {
 
 .form__link {
     /* Styling for the form__link class */
-    color: var(--colour-secondary);
+    color: var(--color-primary-dark);
     text-decoration: none;
     cursor: pointer;
 }
@@ -214,7 +216,7 @@ body {
     font-size: 14px;
     font: 500 1rem 'Quicksand', sans-serif;
     color: #ffffff;
-    background: var(--color-primary);
+    background: var(--color-primary-light);
     cursor: pointer;
     transition: background 0.2s;
 }
@@ -226,5 +228,5 @@ body {
 
 .form__radio--input:checked + .form__radio--label {
     /* Styling for the checked action of form__radio--input parameter and form__radio--label */
-    background: var(--color-primary-dark);
+    background: var(--color-primary);
 }
