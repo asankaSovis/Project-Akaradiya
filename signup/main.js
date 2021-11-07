@@ -21,6 +21,28 @@ if (userlink.split(mylink)[1] === "?signup") {
     signupForm.classList.remove("form--hidden");
 }
 
+function sendXML() {
+    var data = new FormData();
+    data.append('task', 'abortSession');
+
+    xmlhttp = new XMLHttpRequest();
+    // Sending the submitted data to the reset.php file as POST data
+    //
+    xmlhttp.open("POST","../home.php", true);
+    xmlhttp.onreadystatechange=function(){
+        if (xmlhttp.readyState == 4){
+            if(xmlhttp.status == 200){
+                // When a reply is recieved, call the gotReply function
+                // transfering the XML reply (xmlhttp.response) to it
+                console.log(xmlhttp.response);
+            }
+        }
+    };
+    xmlhttp.send(data);
+}
+
+sendXML();
+
 // End of code. Start of event listeners.
 /////////////////////////////////////////////////////////////////////////
 
@@ -112,6 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else if (text === "<verified>"){
                     // User verified and valid credentials. Can login the user
                     setFormMessage(login, "success", "Successfully logged in.");
+                    window.location.href = '..';
                     // IMPORTANT-----------------
                     // Once this stage is reached, the user must be taken to the voting page.
                     // Since for now, these pages don't exist, this area is left blank
