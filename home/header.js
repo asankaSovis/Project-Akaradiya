@@ -19,7 +19,7 @@ function sendXML(id, info) {
     xmlhttp = new XMLHttpRequest();
     // Sending the submitted data to the reset.php file as POST data
     //
-    xmlhttp.open("POST","home.php", true);
+    xmlhttp.open("POST","../home/home.php", true);
     xmlhttp.onreadystatechange=function(){
         if (xmlhttp.readyState == 4){
             if(xmlhttp.status == 200){

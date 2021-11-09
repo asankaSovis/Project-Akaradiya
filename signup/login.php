@@ -47,6 +47,7 @@
             // Execute the query and validation success
             $error = "<verified>";
             $_SESSION['username'] = $email;
+            $_SESSION['id'] = $value[2];
         } else {
             // An error happened
             $error = "Invalid Credentials";
@@ -71,7 +72,7 @@
         // Note2: Returned rows contain if they are verified. This can be used to determine if 
         // user is unverified
         //
-        $sql = "SELECT Verified, PassWord FROM users WHERE Email='$email'";
+        $sql = "SELECT Verified, PassWord, UserID FROM users WHERE Email='$email'";
         // User exist
         return mysqli_query($conn, $sql);
     }

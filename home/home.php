@@ -18,9 +18,13 @@
         if (isset($_SESSION['username'])) {
             $error = $_SESSION['username'];
         }
+    }else if($params == 'getId') {
+        if (isset($_SESSION['id'])) {
+            $error = $_SESSION['id'];
+        }
     } elseif ($params == 'abortSession') {
         $error = session_destroy();
     }
     // Closing the connection and dumping the error to POST
-    var_dump($error);
+    echo($error);
 ?>

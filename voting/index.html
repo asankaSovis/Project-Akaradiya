@@ -1,4 +1,4 @@
-<!-- This is the voting page.
+<!-- This is the homepage.
     It is still under construction. Still require the design to be finalised. -->
 
 <!DOCTYPE html>
@@ -6,20 +6,67 @@
     <head>
         <meta charset="utf-8" />
         <title>Akaradiya - The Open Sri Lankan Dictionary</title>
+        <link rel="shortcut icon" href="../assets/favicon.ico">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@300&family=Zen+Antique+Soft&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="homepage.css">
+        <link rel="stylesheet" href="../homepage.css">
     </head>
 
     <body>
-        <iframe src="header.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
-        <div class="wrapper">
-            <div class="container">
+        <iframe src="../home/header.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+        <div id="overlay">
+            <div class="overlay__form" id="overlay__form">
 
             </div>
         </div>
+        <div class="wrapper">
+            <div class="container">
+                <div class="section">
+                    <div class="row_section">
+                        <input type="text" class="form__input" id="searchText" pattern="[a-zA-Z]{1,}" autofocus placeholder="Search Word..." name="search">
+                        <button class="form__button" id="search">Search</button>
+                        <button class="form__button" id="add__word">Add Word</button>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="row_section">
+                        <h1 class="word__main" id="myWord">
+                            Word
+                        </h1>
+                        <button class="icon__button" id="word__btn+-1+0"><img
+                            src="../assets/like_b.svg" id="word__svg+-1+0"
+                            height="20"
+                            width="20"></button>
+                        <button class="icon__button" id="word__btn+-1+1"><img
+                            src="../assets/dislike_b.svg" id="word__svg+-1+1"
+                            height="20"
+                            width="20"></button>
+                        <button class="icon__button" id="word__btn+-1+2"><img
+                            src="../assets/flag_b.svg" id="word__svg+-1+2"
+                            height="20"
+                            width="20"></button>
+                        
+                    </div>
+                </div>
+                <hr>
+                <div class="section", id="definitionList">
+
+                </div>
+                <div class="section">
+                    <div class="row_section--button">
+                        <button class="form__button" id="new__block">New Block</button>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="section__center">
+                        <button class="form__button" id="next__word">Next Word</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- <footer class="footer"> -->
-        <iframe src="footer.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+        <iframe src="../home/footer.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
     </body>
+    <script src="./main.js"></script>
 </html>

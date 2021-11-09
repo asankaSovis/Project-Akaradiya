@@ -28,7 +28,7 @@ function sendXML() {
     xmlhttp = new XMLHttpRequest();
     // Sending the submitted data to the reset.php file as POST data
     //
-    xmlhttp.open("POST","../home.php", true);
+    xmlhttp.open("POST","../home/home.php", true);
     xmlhttp.onreadystatechange=function(){
         if (xmlhttp.readyState == 4){
             if(xmlhttp.status == 200){
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else if (text === "<verified>"){
                     // User verified and valid credentials. Can login the user
                     setFormMessage(login, "success", "Successfully logged in.");
-                    window.location.href = '..';
+                    window.location.href = '../home/';
                     // IMPORTANT-----------------
                     // Once this stage is reached, the user must be taken to the voting page.
                     // Since for now, these pages don't exist, this area is left blank
