@@ -5,6 +5,9 @@ myWord = "";
 var definitionList = [];
 myID = 0;
 
+let userlink = window.location.href; //Link we got when user clicked on the link
+let mylink = window.location.pathname; //Link where the website actually reside
+
 incrementer = 0;
 
 function sendXML(task, sendData, returnFunc, phpLocation="./voting.php") {
@@ -127,7 +130,7 @@ function changedWordVote(response) {
 }
 
 function changedDefinitionVote(response) {
-    var element = document.getElementById("definitionList");
+    // var element = document.getElementById("definitionList");
     incrementer = 0;
     resetDefButtons();
     gotDefinitionResponse(-1);
@@ -138,7 +141,19 @@ function gotMyID(id) {
         window.location.href = '../signup/';
     } else {
         myID = Number(id);
-        getRandomWord();
+        try {
+            var text = userlink.split(mylink)[1];
+            // If the link contains a word token, then we must use that word
+                // If the email token came with some parameters, we set the parameter to textbox and
+                // perform a button click
+            if (text.replace("?word=", "") != "") {
+                wordParam = text.replace("?word=", "");
+                sendXML('getWord', wordParam, gotRandomWord);
+            } else {
+                getRandomWord();
+            }
+        } catch {}
+        
     }
 }
 

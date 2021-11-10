@@ -18,22 +18,23 @@
         <div class="wrapper">
             <div class="container">
                 <div class="hero">
-                    <h1 class="head__text">
-                        Hello
+                    <h1 class="head__text" id="hero__topic">
+                        Welcome to Akaradiya
                     </h1>
-                    <p class="para__text">
+                    <p class="para__text" id="hero__para">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu erat mi. Sed volutpat dapibus
                         pretium.
                         Vestibulum gravida odio leo, nec elementum sem rhoncus id. Aenean pretium turpis vel urna molestie
                         tempus. Etiam eleifend leo ac magna maximus hendrerit. Nullam bibendum turpis et urna feugiat laoreet.
                         Suspendisse potenti. Integer at eros tellus.
                     </p>
-                    <button class="form__button" onclick="window.location.href='../voting/';">
-                        <span class="form__button--text">Vote Now</span>
+                    <button class="form__button" id="hero__button">
+                        <span class="form__button--text" id="hero__button__text">Signup</span>
                     </button>
                 </div>
                 <div class="left__item">
                     <div class="image__column">
+                        <img class="home__image" src="../assets/images/about.png" alt="About Us">
                     </div>
                     <div class="item__column">
                         <h1 class="para__text">
@@ -43,7 +44,7 @@
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu erat mi. Sed volutpat dapibus
                             pretium.
                         </p>
-                        <button class="form__button">
+                        <button class="form__button" onclick="window.location.href='../voting/';">
                             <span class="form__button--text">Vote Now</span>
                         </button>
                     </div>
@@ -85,4 +86,5 @@
         <!-- <footer class="footer"> -->
         <iframe src="footer.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
     </body>
+    <script src="./main.js"></script>
 </html>

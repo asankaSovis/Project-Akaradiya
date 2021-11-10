@@ -56,6 +56,13 @@ body {
 .image__column {
     background: var(--color-primary-dark);
     width:50%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.home__image {
+    width: 50%;
 }
 
 .left__item {
