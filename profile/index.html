@@ -1,0 +1,39 @@
+<!-- This is the Voting page.
+This website loads when the user clicks on a link to vote.
+This website is used to vote for words.
+This will extract a word if provided.
+NOTE: This website MUST NOT LOAD if the user is not logged in -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"  name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Akaradiya - The Open Sri Lankan Dictionary</title>
+        <link rel="shortcut icon" href="../assets/favicon.ico">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@300&family=Zen+Antique+Soft&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../homepage.css">
+    </head>
+
+    <body>
+        <!-- Header -->
+        <iframe src="../home/header.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+        <!-- Overlay section. This section is used to disrupt and show a message to user -->
+        <div id="overlay">
+            <div class="overlay__form" id="overlay__form">
+                <!-- LEAVE EMPTY. This section is handled dynamically -->
+            </div>
+        </div>
+        <!-- Body -->
+        <div class="wrapper">
+            <!-- The whole website -->
+            <div class="container">
+                <!-- ADD THE DESIGN HERE -->
+            </div>
+        </div>
+        <!-- <footer class="footer"> -->
+        <iframe src="../home/footer.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+    </body>
+    <script src="./main.js"></script>
+</html>

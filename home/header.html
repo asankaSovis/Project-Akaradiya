@@ -1,0 +1,23 @@
+<!-- This is the header of the website.
+This act as an iframe and is loaded when it is requested by a webpage.
+This iframe contains header links and login/signup.
+No parameters. -->
+
+<nav class="nav">
+    <!-- Header Main -->
+    <img class="nav__logo" onclick="window.location.href='../home/';" src="../assets/images/logo.png" alt="User DP"> <!-- Akaradiya logo -->
+    <div class="nav__links">
+        <!-- Left side links -->
+        <a href="#" class="nav__link">Resources</a>
+        <a href="#" class="nav__link">Releases</a>
+        <a href="#" class="nav__link">About</a>
+    </div>
+    <div class="nav__profile">
+        <!-- Profile image and login/signup -->
+        <div class="profile__login">
+            <a href="../signup/" class="nav__link" id="username">Sign In</a>
+            <a href="#" class="nav__link"><img id="userdp" class="nav__userimage" src="../assets/images/users/default.png" alt="User DP"></a>
+        </div>
+    </div>
+</nav>
+<script src="./header.js"></script>
