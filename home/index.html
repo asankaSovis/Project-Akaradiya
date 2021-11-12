@@ -1,5 +1,7 @@
-<!-- This is the homepage.
-    It is still under construction. Still require the design to be finalised. -->
+<!-- This is the Home webpage.
+This website loads when the user enters the root, root/home or click on a link to homepage in any other page.
+This website is the landing page of Akaradiya.
+Parameters are not passed. -->
 
 <!DOCTYPE html>
 <html>
@@ -14,14 +16,21 @@
     </head>
 
     <body>
+        <!-- Header -->
         <iframe src="header.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+
+        <!-- Body -->
         <div class="wrapper">
+            <!-- The whole website -->
             <div class="container">
                 <div class="hero">
+                    <!-- The hero section -->
                     <h1 class="head__text" id="hero__topic">
+                        <!-- Hero topic -->
                         Welcome to Akaradiya
                     </h1>
                     <p class="para__text" id="hero__para">
+                        <!-- Hero paragraph -->
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu erat mi. Sed volutpat dapibus
                         pretium.
                         Vestibulum gravida odio leo, nec elementum sem rhoncus id. Aenean pretium turpis vel urna molestie
@@ -29,61 +38,77 @@
                         Suspendisse potenti. Integer at eros tellus.
                     </p>
                     <button class="form__button" id="hero__button">
+                        <!-- Hero button -->
                         <span class="form__button--text" id="hero__button__text">Signup</span>
                     </button>
                 </div>
                 <div class="left__item">
+                    <!-- About us section -->
                     <div class="image__column">
+                        <!-- About us image -->
                         <img class="home__image" src="../assets/images/about.png" alt="About Us">
                     </div>
                     <div class="item__column">
                         <h1 class="para__text">
+                            <!-- About us topic -->
                             About Us
                         </h1>
                         <p class="para__text">
+                            <!-- About us paragraph ADD THIS -->
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu erat mi. Sed volutpat dapibus
                             pretium.
                         </p>
                         <button class="form__button" onclick="window.location.href='../voting/';">
+                            <!-- About us button -->
                             <span class="form__button--text">Vote Now</span>
                         </button>
                     </div>
                 </div>
                 <div class="left__item">
+                    <!-- Leaderboard section -->
                     <div class="item__column">
                         <h1 class="para__text">
+                            <!-- Leaderboard topic -->
                             Leaderboard
                         </h1>
                         <p class="para__text">
+                            <!-- Leaderboard paragraph ADD THIS -->
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu erat mi. Sed volutpat dapibus
                             pretium.
                         </p>
                         <button class="form__button">
+                            <!-- Leaderboard button -->
                             <span class="form__button--text">Vote Now</span>
                         </button>
                     </div>
                     <div class="image__column">
+                        <!-- Leaderboard Image ADD THIS -->
                     </div>
                 </div>
                 <div class="left__item">
+                    <!-- Dictionaty Section -->
                     <div class="image__column">
+                        <!-- Dictionary image -->
                     </div>
                     <div class="item__column">
                         <h1 class="para__text">
-                            Dictionary Releases
+                            <!-- Dictionary topic -->
+                            Dictionary
                         </h1>
                         <p class="para__text">
+                            <!-- Dictionary paragraph -->
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu erat mi. Sed volutpat dapibus
                             pretium.
                         </p>
                         <button class="form__button">
+                            <!-- Dictionary button -->
                             <span class="form__button--text">Vote Now</span>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- <footer class="footer"> -->
+        <!-- Footer -->
         <iframe src="footer.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
     </body>
     <script src="./main.js"></script>

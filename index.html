@@ -1,9 +1,18 @@
+<!-- This is the root Home webpage.
+This website loads when the user enters the root, or click on a link to homepage in any other page.
+Note: This website is NOT a website to be shown to the user. It merely redirects to the /home
+directory where the actual homepage exist. If a user has auto redirects disabled, this website
+has no choice but to show itself. So add a link to /home. But otherwise this page MUST
+redirect to homepage. -->
+
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Redirect to homepage -->
     <meta http-equiv="refresh" content="0; url='./home/'" />
   </head>
   <body>
+    <!-- Link to homepage -->
     <p>Directing to <a href="./home/">homepage</a>.</p>
   </body>
 </html>

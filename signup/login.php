@@ -1,5 +1,4 @@
 <?php
-
     // <!-- This php will handle all the functions related to login
     // a user sent by the /signup/main.js file. -->
 

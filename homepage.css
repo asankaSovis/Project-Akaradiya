@@ -1,3 +1,6 @@
+/* The main css styling to be used across the website.
+This file is referenced by all other HTML files in the website. */
+
 html,
 body {
     /* Defining the colour palette and styling */
@@ -10,6 +13,7 @@ body {
     --color-success: #4bb544;
     --border-radius: 25px;
 
+    /* Defining the main parameters of the website */
     margin: 0;
     font-family: 'Noto Sans Mono', monospace;
     font-size: 15px;
@@ -17,75 +21,21 @@ body {
     --nav-height: 70px;
 }
 
+/* These css are common for all webpages */
+
 .wrapper {
+    /* Body of each page */
     background: #ffffff;
     overflow: auto;
 }
 
 .container {
+    /* Body of each page */
     margin: var(--nav-height) auto;
     /* max-width: 800px;
     width: 100%;
     padding: 0 15px;
     box-sizing: border-box; */
-}
-
-.hero {
-    top: 0;
-    background-image: url("./assets/images/hero.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: calc(100vh - var(--nav-height));
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-}
-
-.item__column {
-    top: 0;
-    width:50%;
-    height: calc((100vh - var(--nav-height)) / 2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; 
-}
-
-.image__column {
-    background: var(--color-primary-dark);
-    width:50%;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.home__image {
-    width: 50%;
-}
-
-.left__item {
-    display: flex;
-    align-items: stretch;
-}
-
-.para__text {
-    padding: 0 30% 20px;
-    text-align: center;
-    color: #910d0d;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.head__text {
-    font-family: 'Zen Antique Soft', serif;
-    font-size: 50px;
-    padding: 0 30%;
-    text-align: center;
-    color: #931c1c;
-    text-decoration: none;
-    font-weight: bold;
 }
 
 .nav__link {
@@ -131,9 +81,43 @@ body {
     transition: all 0.2s;
 }
 
+/* Css for overlay */
+
+#overlay {
+    /* This section is a hidden section that is shown when needed to show notifications */
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+.overlay__form {
+    /* Form of the overlay section */
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: whitesmoke;
+    border-radius: var(--border-radius);
+    align-items: center;
+    justify-content: center; 
+    display: flex;
+    flex-direction: column; 
+}
+
 /* Header */
 
 .nav {
+    /* Top level of the header */
     width: 100%;
     height: var(--nav-height);
     position: fixed;
@@ -147,26 +131,29 @@ body {
 }
 
 .nav__profile {
+    /* Profile image of user */
     margin-left:auto; margin-right:0;;
 }
 
-.nav--hidden {
+/* .nav--hidden {
     transform: translateY(calc(-1 * var(--nav-height)));
     box-shadow: none;
-}
+} */
 
 .nav__link {
+    /* Left side links of header */
     color: #ffffff;
     text-decoration: none;
     margin: 0 1em;
     font-weight: bold;
 }
 
-profile__login--hidden {
+/* profile__login--hidden {
     display: none;
-}
+} */
 
 .profile__login {
+    /* Login link */
     color: #ffffff;
     text-decoration: none;
     display: flex;
@@ -176,6 +163,7 @@ profile__login--hidden {
 }
 
 .nav__logo {
+    /* Akaradiya logo */
     margin: 1em;
     height: calc(var(--nav-height) - 20px);
     width: calc(var(--nav-height) - 20px);
@@ -183,18 +171,21 @@ profile__login--hidden {
 }
 
 .nav__userimage {
+    /* Profile picture of user */
     height: calc(var(--nav-height) - 20px);
     width: calc(var(--nav-height) - 20px);
 }
 
 /* Footer */
 .footer__main {
+    /* Main section of footer */
     height: 200px;
     display: flex;
     flex-direction: column;
 }
 
 .footer__text {
+    /* Top text of footer */
     margin-left: 10%;
     margin-right: 10%;
     color: #ffffff;
@@ -206,6 +197,7 @@ profile__login--hidden {
 }
 
 .footer__sections {
+    /* Section below footer text */
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
@@ -215,11 +207,13 @@ profile__login--hidden {
 }
 
 .footer__section {
+    /* Each section under the footer */
     display: flex;
     flex-direction: column;
 }
 
 .footer__link {
+    /* Links under each footer topic */
     color: #c1c1c1;
     font-size:15px;
     margin-bottom: 5px;
@@ -227,6 +221,7 @@ profile__login--hidden {
 }
 
 .footer__title {
+    /* Titles of each footer section */
     color: #ffffff;
     text-decoration: none;
     font-weight: bold;
@@ -235,15 +230,84 @@ profile__login--hidden {
 }
 
 .footer__copyright {
+    /* Copyright notice */
     color: #797979;
     text-align:center;
     font-size:10px;
     margin-top: 10px;
 }
 
-/* //////////////////////////////////////// */
+/* These are styling for mostly homepage related css */
+
+.hero {
+    /* The hero image of the homepage */
+    top: 0;
+    background-image: url("./assets/images/hero.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc(100vh - var(--nav-height));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+
+.item__column {
+    /* Each section under the hero secton in homepage */
+    top: 0;
+    width:50%;
+    height: calc((100vh - var(--nav-height)) / 2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+}
+
+.image__column {
+    /* Image column (Left or right) of each section under the hero secton in homepage */
+    background: var(--color-primary-dark);
+    width:50%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.home__image {
+    /* Image of each section under the hero secton in homepage */
+    width: 50%;
+}
+
+.left__item {
+    /*Content of each section under the hero secton in homepage */
+    display: flex;
+    align-items: stretch;
+}
+
+.para__text {
+    /*Paragraphs of each section under the hero secton in homepage */
+    padding: 0 30% 20px;
+    text-align: center;
+    color: #910d0d;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.head__text {
+    /*Text of heading of each section under the hero secton in homepage */
+    font-family: 'Zen Antique Soft', serif;
+    font-size: 50px;
+    padding: 0 30%;
+    text-align: center;
+    color: #931c1c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* The voting page css*/
 
 .section {
+    /* Each horizontal section */
     display: flex;
     flex-direction: column;
     margin-left: 10%;
@@ -251,6 +315,7 @@ profile__login--hidden {
 }
 
 .row_section {
+    /* Each column section in horizontal section */
     display: flex;
     flex-direction: row; 
     padding-top: 10px;
@@ -259,6 +324,7 @@ profile__login--hidden {
 }
 
 .row_section--button {
+    /* Button in each row section */
     display: flex;
     flex-direction: row; 
     padding-top: 10px;
@@ -268,6 +334,7 @@ profile__login--hidden {
 }
 
 .section__center {
+    /* Button in each row section centered */
     margin: 0 auto;
 }
 
@@ -297,6 +364,7 @@ profile__login--hidden {
 }
 
 .word__main {
+    /* Word that is loaded  */
     font-family: 'Zen Antique Soft', serif;
     width: 80%;
     font-size: 50px;
@@ -308,6 +376,7 @@ profile__login--hidden {
 }
 
 .def__main {
+    /* Each definition */
     font-family: 'Zen Antique Soft', serif;
     width: 80%;
     font-size: 30px;
@@ -319,13 +388,14 @@ profile__login--hidden {
 }
 
 hr {
+    /* The vertical separator */
     margin-left: 5%;
     margin-right: 5%;
 	border-bottom: solid var(--color-primary-dark);
 }
 
 .icon__button {
-    /* Styling for the form__button class */
+    /* Styling for the icon buttons */
     position: relative;
     padding: 1rem 2rem;
     margin: auto auto;
@@ -337,54 +407,25 @@ hr {
 }
 
 .icon__button:hover {
-    /* Styling for the hover action of form__button class */
+    /* Styling for the hover action of icon buttons */
     background: var(--color-primary-dark);
 }
 
 .icon__button:active {
-    /* Styling for the active action of form__button class */
+    /* Styling for the active action of icon buttons */
     transform: scale(0.98);
 }
 
 .icon__button:disabled {
-    /* Styling for the disabled action of form__button class */
+    /* Styling for the disabled action of icon buttons */
     background: var(--color-primary-light);
     cursor: auto;
 }
 
 .icon__button--text {
-    /* Styling for the form__button--text parameter */
+    /* Styling for the icon buttons text (Not used for now) */
     font-weight: bold;
     font-size: 1.1rem;
     color: #ffffff;
     transition: all 0.2s;
-}
-
-#overlay {
-    position: fixed; /* Sit on top of the page content */
-    display: none; /* Hidden by default */
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
-}
-
-.overlay__form {
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    background: whitesmoke;
-    border-radius: var(--border-radius);
-    align-items: center;
-    justify-content: center; 
-    display: flex;
-    flex-direction: column; 
 }

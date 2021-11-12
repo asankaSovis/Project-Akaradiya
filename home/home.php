@@ -1,19 +1,16 @@
 <?php
 
-    // <!-- This php will handle all the functions related to login
-    // a user sent by the /signup/main.js file. -->
+    // <!-- This php will handle all the functions related to logging in
+    // a user sent by the any JS file. -->
 
-    // <!-- ERROR CODES-------------
-    // <verified> - The user is verified and credentials are correct. Can log in
-    // <notverified> - The user is not verified. Have to show the resend verification link
-    // <error> - Any other error(Including wrong credentials. This is to protect user data)
-    // ------------------------ -->
+    session_start(); // Starts a session
 
-    session_start();
-
+    // Global variables
     $error = "None";
     $params = $_POST['task'];
 
+    // Gives back the username and id if the JS requests
+    // Aborts the session if JS requests
     if($params == 'getSession') {
         if (isset($_SESSION['username'])) {
             $error = $_SESSION['username'];
