@@ -61,10 +61,77 @@ body {
 
     width: 200px;
     height: 200px;
-    padding: 100px;
+    padding: 100px 100px 100px 0;
     margin-left: 50px;
     
     
+}
+
+.container_2{
+
+    width: 100%;
+    
+    box-sizing: border-box; 
+    background-color:var(--colour-secondary-light);
+   
+    align-items: stretch/center;
+}
+
+.container_2 h1{
+
+    color: #333333;
+    text-align: center;
+    font-weight:bold;
+    padding:50px 100px 0 100px;
+    font-size:50px;
+    
+}
+
+.carousel_container{
+
+    display: flex;
+    width: 300px;
+    height: auto;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    left: 2px;
+    padding: 0 0 0 600px;
+}
+
+.carousel_container img{
+
+    width: 300px;
+    height: auto;
+    display: flex;
+    transform: translateY(0);
+    transition: transform 0.25s;
+}
+
+.container_2 button{
+
+    background-color: teal;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color:#333333;
+    opacity: 0.25s;
+    position: absolute;
+    margin: auto;
+    z-index: 1;
+    display: flex;
+}
+
+ .btn_pre{
+    bottom: 3px;
+    left: 500px;
+}
+
+ .btn_nxt{
+   bottom: 3px;
+    right: 500px;
 }
 
 
