@@ -104,7 +104,7 @@ body {
     width: 300px;
     height: auto;
     display: flex;
-    transform: translateY(0);
+    transform: translateX(0);
     transition: transform 0.25s;
 }
 
@@ -122,6 +122,7 @@ body {
     margin: auto;
     z-index: 1;
     display: flex;
+    transition: opacity 0.25s;
 }
 
  .btn_pre{
@@ -132,6 +133,11 @@ body {
  .btn_nxt{
    bottom: 3px;
     right: 500px;
+}
+
+.container_2 button:hover{
+
+    opacity: 0.6;
 }
 
 
