@@ -14,6 +14,7 @@ NOTE: This website MUST NOT LOAD if the user is not logged in -->
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@300&family=Zen+Antique+Soft&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../homepage.css">
+        <script src="../profile/main.js"></script>
     </head>
 
     <body>
@@ -26,12 +27,90 @@ NOTE: This website MUST NOT LOAD if the user is not logged in -->
             </div>
         </div>
         <!-- Body -->
-        <div class="wrapper">
+        <div class="wrapper"></div>
             <!-- The whole website -->
-            <div class="container">
-                <!-- ADD THE DESIGN HERE -->
+            <div class="container__profile">
+              <h1>My Name</h1>
+              <img src="../assets/images/users/profile.png" alt="user_pic">
+             <!-- ADD THE DESIGN HERE---------------------------------------- -->
             </div>
-        </div>
+
+            <div class="container_2">
+                <h1>Badges</h1>
+                
+                <div class="carousel_container">
+                    <img src="../assets/images/badges/badge1.png" alt="badge1">
+                    <img src="../assets/images/badges/badge-2.png" alt="badge2">
+                    <img src="../assets/images/badges/badge3.png" alt="badge3">
+                    <img src="../assets/images/badges/badge-2.png" alt="badge2">
+                    <img src="../assets/images/badges/badge1.png" alt="badge1">
+                    <img src="../assets/images/badges/badge3.png" alt="badge3">
+                
+                </div>
+                <div class="nxt_pre_buttons">
+                    <button class="btn_pre" id="previous"><</button>
+                    <button class="btn_nxt" id="next" >></button>
+
+                </div>
+                
+            </div>
+
+            <div class="container_3">
+                <img src="../assets/images/users/profile.png" alt="user_pic">
+                <article>
+                    <h1>My Name</h1>
+                    <ul>
+                        <li>About1</li>
+                        <li>About2</li>
+                        <li>About3</li>
+
+
+                    </ul>
+                </article>
+            </div>
+
+            <div class="container_4">
+                <article>
+                    <h1>Level</h1>
+                    <ul>
+                        <li>About1</li>
+                        <li>About2</li>
+                        <li>About3</li>
+                    </ul>
+
+
+
+                </article>
+                <img src="../assets/images/users/profile.png" alt="user_pic">
+
+
+
+
+
+            </div>
+
+            <div class="container_5">
+            <img src="../assets/images/badges/pie-chart.png"  alt="pie_chart">
+            <article>
+                <h1>Statistics</h1>
+                <ul>
+                    <li>About1</li>
+                    <li>About2</li>
+                    <li>About3</li>
+                </ul>
+
+
+            </article>
+
+
+
+            </div>
+
+
+
+
+
+        
         <!-- <footer class="footer"> -->
         <iframe src="../home/footer.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
     </body>
