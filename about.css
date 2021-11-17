@@ -1,0 +1,164 @@
+/* The main css styling to be used across the website.
+This file is referenced by all other HTML files in the website. */
+
+html,
+body {
+    /* Defining the colour palette and styling */
+    --color-primary: #c3aad1;
+    --color-primary-dark: #929fd1;
+    --color-primary-light: #e7c7d7;
+    --colour-secondary: #9ad3ca;
+    --colour-secondary-light: #d7eae4;
+    --color-error: #cc3333;
+    --color-success: #4bb544;
+    --border-radius: 25px;
+
+    /* Defining the main parameters of the website */
+    margin: 0;
+    font-family: 'Noto Sans Mono', monospace;
+    font-size: 15px;
+    background: #333333;
+    --nav-height: 70px;
+}
+
+/* These css are common for all webpages */
+
+.wrapper {
+    /* Body of each page */
+    background: #ffffff;
+    overflow: auto;
+}
+
+.container {
+    /* Body of each page */
+    margin: var(--nav-height) auto auto 0;
+    /* max-width: 800px;
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box; */
+}
+
+/* Header */
+
+.nav {
+    /* Top level of the header */
+    width: 100%;
+    height: var(--nav-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--color-primary-dark);
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+}
+
+.nav__profile {
+    /* Profile image of user */
+    margin-left:auto; margin-right:0;;
+}
+
+/* .nav--hidden {
+    transform: translateY(calc(-1 * var(--nav-height)));
+    box-shadow: none;
+} */
+
+.nav__link {
+    /* Left side links of header */
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 1em;
+    font-weight: bold;
+}
+
+/* profile__login--hidden {
+    display: none;
+} */
+
+.profile__login {
+    /* Login link */
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin: 0 1em;
+    font-weight: bold;
+}
+
+.nav__logo {
+    /* Akaradiya logo */
+    margin: 1em;
+    height: calc(var(--nav-height) - 20px);
+    width: calc(var(--nav-height) - 20px);
+    cursor: pointer;
+}
+
+.nav__userimage {
+    /* Profile picture of user */
+    height: calc(var(--nav-height) - 20px);
+    width: calc(var(--nav-height) - 20px);
+}
+
+/* Footer */
+.footer__main {
+    /* Main section of footer */
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__text {
+    /* Top text of footer */
+    margin-left: 10%;
+    margin-right: 10%;
+    color: #ffffff;
+    text-decoration: none;
+    align-items: stretch;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.footer__sections {
+    /* Section below footer text */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: space-between;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.footer__section {
+    /* Each section under the footer */
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__link {
+    /* Links under each footer topic */
+    color: #c1c1c1;
+    font-size:15px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.footer__title {
+    /* Titles of each footer section */
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.footer__copyright {
+    /* Copyright notice */
+    color: #797979;
+    text-align:center;
+    font-size:10px;
+    margin-top: 10px;
+}
+
+/* CSS related to the pages themselves */
