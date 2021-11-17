@@ -31,10 +31,11 @@ body {
 
 .container {
     /* Body of each page */
-    margin-top: var(--nav-height) 0;
+    margin: var(--nav-height) auto auto 0;
+    /* max-width: 800px;
     width: 100%;
-    box-sizing: border-box;
-    background-color:var(--colour-secondary);
+    padding: 0 15px;
+    box-sizing: border-box; */
 }
 
 .nav__link {
