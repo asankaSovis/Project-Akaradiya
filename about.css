@@ -31,12 +31,121 @@ body {
 
 .container {
     /* Body of each page */
-    margin: var(--nav-height) auto auto 0;
-    /* max-width: 800px;
+    
     width: 100%;
-    padding: 0 15px;
-    box-sizing: border-box; */
+    display: flex;
+    box-sizing: border-box; 
+    background-color:#010816;
+    padding: 75px 10px 10px 10px;
+
 }
+
+.container img{
+
+    width: 260px;
+    height: 440px;
+    background: linear-gradient(-45deg, #00ff66, #00ffff, #ff00ff , #099fff);
+    border: 2px  solid #010816 ;
+    border-radius: 10px;
+    padding: 5px;
+    
+    
+
+}
+
+.container article{
+
+    color:#ffffff;
+    padding: 30px 0 0 40px;
+}
+
+.container2 {
+
+
+      
+    width: 100%;
+    display: flex;
+    box-sizing: border-box; 
+    background-color:var(--colour-secondary-light);
+    padding: 10px 10px 10px 10px;
+}
+
+.container2 img{
+
+    width: 260px;
+    height: 440px;
+    background: linear-gradient(-45deg, #00ff66, #00ffff, #ff00ff , #099fff);
+    border: 2px  solid var(--colour-secondary-light) ;
+    border-radius: 10px;
+    padding: 5px;
+
+
+
+}
+
+.container2 article{
+    text-align: right;
+    padding:30px 40px 0 0;
+
+
+}
+
+.container3{
+    width: 100%;
+    
+    box-sizing: border-box; 
+    background-color:#010816;
+    padding: 10px 10px 100px 10px;
+
+
+}
+
+.container3 h1{
+
+    text-align: center;
+    padding: 10px;
+    color: #ffffff;
+   
+}
+
+.container3 .team_images {
+    display: flex;
+    justify-content: space-between;
+    
+    
+    
+
+
+}
+
+.container3 img{
+    width: 62px;
+    height: 110px;
+    background: linear-gradient(-45deg, #00ff66, #00ffff, #ff00ff , #099fff);
+    border: 2px  solid #010816 ;
+    border-radius: 1000px;
+    padding: 4px;
+
+
+}
+
+.team_images article{
+
+color: #ffffff;
+text-align: center;
+align-items: center;
+width: 300px;
+height: 300px;
+padding: 10px;
+
+}
+
+
+
+
+
+
+
 
 /* Header */
 
