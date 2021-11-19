@@ -5,6 +5,13 @@ Parameters are not passed. */
 
 // Note: This JS calls the home.php and voting.php files and sit in /home/ folder
 
+// Message HTML
+htmlHeading = '<h1 id="badgeName" class="para__text">#heading</h1>';
+htmlImage = '<img id="badgeImage" class="box__image" src="#location" alt="Badge">';
+htmlPara = '<p id="levelInfo" class="para__text">#text</p>';
+htmlButton = '<div class="section__center"><button class="form__button" id="overlay__close">Ok</button></div>';
+htmlInput = '<input type="text" class="form__input" id="#id" autofocus placeholder="#placeholder" name="newBlock">'
+
 // Getting the elements required
 heroButton = document.getElementById("hero__button");
 heroTopic = document.getElementById("hero__topic");
@@ -53,15 +60,18 @@ function gotMyID(id) {
     
     if (id != "None") {
         heroTopic.innerHTML = "Let's Start Our Journey";
-        heroPara.innerHTML = "01. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu erat mi. Sed volutpat dapibus pretium. Vestibulum gravida odio leo, nec elementum sem rhoncus id. Aenean pretium turpis vel urna molestie tempus. Etiam eleifend leo ac magna maximus hendrerit. Nullam bibendum turpis et urna feugiat laoreet. Suspendisse potenti. Integer at eros tellus.";
+        heroPara.innerHTML = "Your journey is just one click away. Start voting, adding words, interacting with other users.";
         heroButtonText.innerHTML = "Vote Now";
         heroButton.addEventListener("click", goToVote);
     } else {
         heroTopic.innerHTML = "Welcome to Akaradiya";
-        heroPara.innerHTML = "02. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu erat mi. Sed volutpat dapibus pretium. Vestibulum gravida odio leo, nec elementum sem rhoncus id. Aenean pretium turpis vel urna molestie tempus. Etiam eleifend leo ac magna maximus hendrerit. Nullam bibendum turpis et urna feugiat laoreet. Suspendisse potenti. Integer at eros tellus.";
+        heroPara.innerHTML = "Akaradiya is an opensource dictionary aimed at bridging the gap between Sinhala and the internet. We are determined to use the power of crowdsourcing to compile a Sinhala dictionary that is accessible to everyone all across Sri Lanka.";
         heroButtonText.innerHTML = "Signup";
         heroButton.addEventListener("click", goToSignup);
     }
+
+    innerHTML = htmlHeading.replace('#heading', 'Welcome to Akaradiya') + htmlImage.replace('#location', "../assets/images/success.png") + htmlPara.replace('#text', 'A warm welcome to the Akaradiya Homepage. Just a quick notice.<br>Akaradiya is still in its Alpha testing phase. Therefore there might be some issues and inconveniences. Please be kind enough to notify us in case you notice any issues. Also please refrain from sharing personal information. And especially DO NOT use your existing personal passwords on this platform.<br> Thank You!') + htmlButton;
+    showOverlay(innerHTML);
 }
 
 function goToVote() {
@@ -78,6 +88,26 @@ function goToSignup() {
     // Returns null
     //
     window.location.href = '../signup/?signup';
+}
+
+function showOverlay(innerHTML, buttonFunction=hideOverlay) {
+    // Shows the overlay
+    // Accepts the (string)innterHTML to show on the overlay, (function)buttonFunction to call if
+    // a button is clicked (default=hideOverlay)
+    // Return null
+    //
+    document.getElementById("overlay__form").innerHTML = innerHTML;
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("overlay__form").style.margin = "50px 10% 0 10%";
+    document.getElementById('overlay__close').addEventListener("click", buttonFunction);
+}
+
+function hideOverlay() {
+    // Hides the overlay
+    // Accepts none
+    // Return null
+    //
+    document.getElementById("overlay").style.display = "none";
 }
 
 // End of function. Starts the code

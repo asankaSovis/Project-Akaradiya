@@ -18,7 +18,12 @@ Parameters are not passed. -->
     <body>
         <!-- Header -->
         <iframe src="header.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
-
+        <!-- Overlay section. This section is used to disrupt and show a message to user -->
+        <div id="overlay">
+            <div class="overlay__form" id="overlay__form">
+                <!-- LEAVE EMPTY. This section is handled dynamically -->
+            </div>
+        </div>
         <!-- Body -->
         <div class="wrapper">
             <!-- The whole website -->
@@ -31,11 +36,7 @@ Parameters are not passed. -->
                     </h1>
                     <p class="para__text" id="hero__para">
                         <!-- Hero paragraph -->
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu erat mi. Sed volutpat dapibus
-                        pretium.
-                        Vestibulum gravida odio leo, nec elementum sem rhoncus id. Aenean pretium turpis vel urna molestie
-                        tempus. Etiam eleifend leo ac magna maximus hendrerit. Nullam bibendum turpis et urna feugiat laoreet.
-                        Suspendisse potenti. Integer at eros tellus.
+                        Akaradiya is an opensource dictionary aimed at bridging the gap between Sinhala and the internet.
                     </p>
                     <button class="form__button" id="hero__button">
                         <!-- Hero button -->
@@ -55,10 +56,9 @@ Parameters are not passed. -->
                         </h1>
                         <p class="para__text">
                             <!-- About us paragraph ADD THIS -->
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu erat mi. Sed volutpat dapibus
-                            pretium.
+                            Akaradiya is an opensource dictionary aimed at compiling an online sinhala dictionary.
                         </p>
-                        <button class="form__button" onclick="window.location.href='../voting/';">
+                        <button class="form__button" onclick="window.location.href='../us/';">
                             <!-- About us button -->
                             <span class="form__button--text">Learn More</span>
                         </button>
@@ -73,12 +73,11 @@ Parameters are not passed. -->
                         </h1>
                         <p class="para__text">
                             <!-- Leaderboard paragraph ADD THIS -->
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu erat mi. Sed volutpat dapibus
-                            pretium.
+                            Checkout the most contributing individuals.
                         </p>
-                        <button class="form__button">
+                        <button class="form__button" onclick="window.location.href='../leaderboard/';">
                             <!-- Leaderboard button -->
-                            <span class="form__button--text">Check the Achievers</span>
+                            <span class="form__button--text">Leaderboard</span>
                         </button>
                     </div>
                     <div class="image__column">
@@ -99,10 +98,9 @@ Parameters are not passed. -->
                         </h1>
                         <p class="para__text">
                             <!-- Dictionary paragraph -->
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu erat mi. Sed volutpat dapibus
-                            pretium.
+                            Checkout the latest releases from Akaradiya.
                         </p>
-                        <button class="form__button">
+                        <button class="form__button" onclick="window.location.href='../dictionary/';">
                             <!-- Dictionary button -->
                             <span class="form__button--text">Check a Word</span>
                         </button>
@@ -117,10 +115,9 @@ Parameters are not passed. -->
                         </h1>
                         <p class="para__text">
                             <!-- Leaderboard paragraph ADD THIS -->
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu erat mi. Sed volutpat dapibus
-                            pretium.
+                            Want to know more about how to contribute?
                         </p>
-                        <button class="form__button">
+                        <button class="form__button" onclick="window.location.href='../documentation/';">
                             <!-- Leaderboard button -->
                             <span class="form__button--text">Read Documentation</span>
                         </button>
