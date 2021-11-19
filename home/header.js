@@ -20,7 +20,8 @@ user is logged in and such. */
 // });
 
 // Sends a POST to get the login data
-sendXML('task', 'getSession');
+sendXML('task', 'getId');
+myID = -1;
 
 // End of event listeners. Start of functions.
 /////////////////////////////////////////////////////////////////////////
@@ -62,6 +63,7 @@ function gotReply(session) {
     } else {
         const userElement = document.querySelector("#username");;
         userElement.textContent = "Log In";
+        myID = session;
     }
     // console.log(session);
 }
