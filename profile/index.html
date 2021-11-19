@@ -13,8 +13,10 @@ NOTE: This website MUST NOT LOAD if the user is not logged in -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@300&family=Zen+Antique+Soft&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./lightSlider/style/lightslider.css"/>
         <link rel="stylesheet" href="../homepage.css">
-        <script src="../profile/main.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script type="text/javascript" src="./lightSlider/js/lightslider.js"></script>
     </head>
 
     <body>
@@ -27,90 +29,74 @@ NOTE: This website MUST NOT LOAD if the user is not logged in -->
             </div>
         </div>
         <!-- Body -->
-        <div class="wrapper"></div>
+        <div class="wrapper">
             <!-- The whole website -->
             <div class="container__profile">
-              <h1>My Name</h1>
-              <img src="../assets/images/users/profile.png" alt="user_pic">
-             <!-- ADD THE DESIGN HERE---------------------------------------- -->
-            </div>
-
-            <div class="container_2">
-                <h1>Badges</h1>
-                
-                <div class="carousel_container">
-                    <img src="../assets/images/badges/badge1.png" alt="badge1">
-                    <img src="../assets/images/badges/badge-2.png" alt="badge2">
-                    <img src="../assets/images/badges/badge3.png" alt="badge3">
-                    <img src="../assets/images/badges/badge-2.png" alt="badge2">
-                    <img src="../assets/images/badges/badge1.png" alt="badge1">
-                    <img src="../assets/images/badges/badge3.png" alt="badge3">
-                
+                <div class="profile__column">
+                    <!-- About us image -->
+                    <img id="userdp" class="box__image" src="../assets/images/users/profile.png" alt="User DP">
                 </div>
-                <div class="nxt_pre_buttons">
-                    <button class="btn_pre" id="previous"><</button>
-                    <button class="btn_nxt" id="next" >></button>
-
+                <div class="item__column">
+                    <h1 id="username1" class="container__text">My Name</h1>
                 </div>
+            </div>
+            <div class="badges__container">
+                <hr>
+                <h1 class="head__text">Badges</h1>
+                <div class="carousel__container">
+                    <ul id="autoWidth" class="cs-hidden">
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="badges__container">
+                <hr>
+                <div class="left__item">
+                    <!-- Dictionaty Section -->
+                    <div class="profile__column">
+                        <!-- Dictionary image -->
+                        <img class="box__image" src="../assets/images/users/profile.png" alt="User DP">
+                    </div>
+                    <div class="item__column">
+                        <h1 id="username2"class="para__text">
+                            <!-- Dictionary topic -->
+                            Username
+                        </h1>
+                        <p id="userinfo" class="para__text">
+                            <!-- Dictionary paragraph -->
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu erat mi. Sed volutpat dapibus
+                            pretium.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="badges__container">
+                <hr>
+                <div class="left__item">
+                    <!-- Leaderboard section -->
+                    <div class="item__column">
+                        <h1 id="badgeName" class="para__text">
+                            <!-- Leaderboard topic -->
+                            Level 0
+                        </h1>
+                        <p id="levelInfo" class="para__text">
+                            <!-- Leaderboard paragraph ADD THIS -->
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu erat mi. Sed volutpat dapibus
+                            pretium.
+                        </p>
+                    </div>
+                    <div class="profile__column">
+                        <!-- Leaderboard Image ADD THIS -->
+                        <img id="badgeImage" class="box__image" src="../assets/images/badges/badge_dark.png" alt="Badge">
+                    </div>
+                </div>
+            </div>
+            <div id="achievers" class="badges__container">
+                <hr>
+                <h1 class="head__text">Competition</h1>
                 
             </div>
-
-            <div class="container_3">
-                <img src="../assets/images/users/profile.png" alt="user_pic">
-                <article>
-                    <h1>My Name</h1>
-                    <ul>
-                        <li>About1</li>
-                        <li>About2</li>
-                        <li>About3</li>
-
-
-                    </ul>
-                </article>
-            </div>
-
-            <div class="container_4">
-                <article>
-                    <h1>Level</h1>
-                    <ul>
-                        <li>About1</li>
-                        <li>About2</li>
-                        <li>About3</li>
-                    </ul>
-
-
-
-                </article>
-                <img src="../assets/images/users/profile.png" alt="user_pic">
-
-
-
-
-
-            </div>
-
-            <div class="container_5">
-            <img src="../assets/images/badges/pie-chart.png"  alt="pie_chart">
-            <article>
-                <h1>Statistics</h1>
-                <ul>
-                    <li>About1</li>
-                    <li>About2</li>
-                    <li>About3</li>
-                </ul>
-
-
-            </article>
-
-
-
-            </div>
-
-
-
-
-
-        
+        </div>
         <!-- <footer class="footer"> -->
         <iframe src="../home/footer.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
     </body>
