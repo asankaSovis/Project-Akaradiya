@@ -35,8 +35,8 @@
     if (isset($_SESSION['id'])) {
         $userID = $_SESSION['id'];
         $XP = getXP($conn, $userID);
-        $lowerBound = checkAchievement($conn, $XP);
-        sendMsg('xpValues', json_encode([$lowerBound, (int)$XP, (int)upperBound($conn, $XP)]));     
+        checkAchievement($conn, $userID, $XP);
+        
     } else {
         exit();
     }
@@ -51,7 +51,7 @@
         //
         $sql = "SELECT ExperiencePoints FROM users WHERE UserID=$userID";
         $result = mysqli_query($conn, $sql);
-        return mysqli_fetch_row($result)[0];
+        return (int)mysqli_fetch_row($result)[0];
     }
 
     function sendMsg($id, $msg) {
@@ -66,70 +66,64 @@
         flush();
     }
 
-    function checkAchievement($conn, $XP) {
+    function checkAchievement($conn, $userID, $XP) {
         // Checks if the user has an achievement
         // Accepts (connection)conn, (int)XP
         // Returns the achievement ID if there is one, else return -1
         //
-        $highestAchievement = -1;
-        
-        $sql = "SELECT AchievementID FROM achievement_activity WHERE UserID=$userID ORDER BY AchievementID DES";
-        $result = mysqli_query($conn, $sql);
-        if (!(mysqli_num_rows($result) <= 0)) {
-            $highestAchievement = mysqli_fetch_row($result)[0];
-        }
+        $lower = lastAchievement($conn, $userID);
+        $higher = nextAchievement($conn, $lower[0]);
+        checkForAchievement($conn, $userID, $lower, $XP, $higher);
+        sendMsg('message', json_encode(['stats', $lower[1], $XP, $higher[1]]));
 
-        $highestAvailable = lastAchievement($conn, $XP, $highestAchievement);
-        if (!($highestAchievement != -1)) {
-            sendMsg('achievementUnlock', $highestAvailable);
-        }
-        return lowerBound($conn, $highestAchievement);
+        return 0;
     }
 
-    function lastAchievement($conn, $maxXP, $maxAchievement) {
+    function lastAchievement($conn, $userID) {
         // Checks the last achievement of a user
         // Accepts the (connection)conn, (int)maxXP, (int)maxAchievement
         // Returns the last achievement as int, -1 if no achievements
         //
-        $returnData = -1;
-        $sql = "SELECT AchievementID FROM achievements WHERE XPCap<=$maxXP AND AchievementID>$maxAchievement ORDER BY XPCap ASC";
+        $returnData = [-1, 0];
+        $sql = "SELECT AchievementID FROM achievement_activity WHERE UserID = $userID AND Type = 'Level' ORDER BY AchievementID Desc";
         $result = mysqli_query($conn, $sql);
-        if (!(mysqli_num_rows($result) <= 0)) {
+        if (mysqli_num_rows($result) > 0) {
             $returnData = mysqli_fetch_row($result)[0];
+            $sql = "SELECT XPCap FROM achievements WHERE AchievementID = $returnData";
+            $result = mysqli_query($conn, $sql);
+            $returnData = [(int)$returnData, (int)mysqli_fetch_row($result)[0]];
         }
         return $returnData;
     }
 
-    function upperBound($conn, $XP) {
-        // Gets the next achievement user can get
-        // Accepts (connection)conn, (int)XP
-        // Returns the XP value of next achievement or current XP value
-        // user has all achievements unlocked
-        //
-        $returnData = $XP;
-        $sql = "SELECT XPCap FROM achievements WHERE XPCap>=$XP ORDER BY XPCap ASC";
+    function nextAchievement($conn, $lastAchievement) {
+        $returnData = [-1, 0];
+        $sql = "SELECT AchievementID, XPCap FROM achievements WHERE AchievementID > $lastAchievement AND Type = 'Level' ORDER BY XPCap Asc";
         $result = mysqli_query($conn, $sql);
-        if (!(mysqli_num_rows($result) <= 0)) {
-            $returnData = mysqli_fetch_row($result)[0];
+        if (mysqli_num_rows($result) > 0) {
+            $returnData = mysqli_fetch_row($result);
+        } else {
+            $sql = "SELECT AchievementID, XPCap FROM achievements WHERE Type = 'Level' ORDER BY XPCap Desc LIMIT 1";
+            $result = mysqli_query($conn, $sql);
+            $returnData = mysqli_fetch_row($result);
         }
-        return $returnData;
+
+        return [(int)$returnData[0], (int)$returnData[1]];
     }
 
-    function lowerBound($conn, $achievementID) {
-        // Gets the lower bound of the user
-        // Accepts (connection)conn, (int)achievementID
-        // Returns the XP of last achievement and 0 if user
-        // has not achieved any
-        $returnData = 0;
-        $sql = "SELECT XPCap FROM achievements WHERE AchievementID=$achievementID";
-        $result = mysqli_query($conn, $sql);
-        if (!(mysqli_num_rows($result) <= 0)) {
-            $returnData = mysqli_fetch_row($result)[0];
+    function checkForAchievement($conn, $user, $lower, $XP, $higher) {
+        if (($XP > $higher[1]) && ($lower[1] < $higher[1])) {
+            newAchievement($conn, $user, $higher[0]);
         }
-        return $returnData;
     }
 
-    function unlockAchievement() {
+    function newAchievement($conn, $user, $higher) {
+        $sql = "INSERT INTO achievement_activity (UserID, AchievementID, Type)
+        VALUES ('$user','$higher','Level')"; // SQL query
+        mysqli_query($conn, $sql);
 
+        $sql = "SELECT AchievementID, Achievement, Description FROM achievements WHERE AchievementID = $higher";
+        $resultBadge =  mysqli_query($conn, $sql);
+        sendMsg('message', json_encode(['achievement', mysqli_fetch_row($resultBadge)]));   
     }
 ?>

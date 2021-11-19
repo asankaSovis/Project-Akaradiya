@@ -21,6 +21,17 @@ var definitionList = [];
 myID = 0;
 // Incrementer which keep track of the definitions loaded
 incrementer = 0;
+// The stats of the user
+myStats = [0, 0, 0];
+
+// Message HTML
+htmlHeading = '<h1 id="badgeName" class="para__text">#heading</h1>';
+htmlImage = '<img id="badgeImage" class="box__image" src="#location" alt="Badge">';
+htmlPara = '<p id="levelInfo" class="para__text">#text</p>';
+htmlButton = '<div class="section__center"><button class="form__button" id="overlay__close">Ok</button></div>';
+htmlInput = '<input type="text" class="form__input" id="#id" autofocus placeholder="#placeholder" name="newBlock">'
+successImage = "../assets/images/success.png";
+errorImage = "../assets/images/error.png";
 
 // Getting the elements required
 document.getElementById('next__word').addEventListener("click", getRandomWord);
@@ -99,7 +110,7 @@ function gotRandomWord(word) {
     //
     if (word.includes("<empty>")) {
         text = "This word doesn\'t exist in our database. Click on Add Word to add it";
-        innerHTML = '<h2 class="para__text">' + text + '</h2><div class="section__center"><button class="form__button" id="overlay__close">Ok</button></div>';
+        innerHTML = htmlHeading.replace('#heading', 'Warning') + htmlImage.replace('#location', errorImage) + htmlPara.replace('#text', text) + htmlButton;
         showOverlay(innerHTML);
     } else {
         // console.log(word);
@@ -299,17 +310,20 @@ function newWordAdded(response) {
     // Accepts (string)response
     // Returns null
     //
+    headingText = 'Warning';
+    imageLocation = errorImage;
     if (response.includes("<done>")) {
         text = "The word was added successfully.";
         searchWord();
+        headingText = 'Complete';
+        imageLocation = successImage;
     } else if (response.includes("<empty>")) {
         text = "The text is empty or only contain invalid characters.";
     } else {
         text = "This word exist in our database. Click on Search to get this word.";
     }
     
-    innerHTML = '<h2 class="para__text">' + text + '</h2><div class="section__center"><button class="form__button" id="overlay__close">Ok</button></div>';
-
+    innerHTML = htmlHeading.replace('#heading', headingText) + htmlImage.replace('#location', imageLocation) + htmlPara.replace('#text', text) + htmlButton;
     showOverlay(innerHTML);
 }
 
@@ -331,17 +345,20 @@ function addedNewBlock(response) {
     // Return null
     //
     // console.log(response);
+    headingText = 'Warning';
+    imageLocation = errorImage;
     if (response.includes("<done>")) {
         text = "The definition block was added successfully.";
         searchWord();
+        headingText = 'Complete';
+        imageLocation = successImage;
     } else if (response.includes("<empty>")) {
         text = "The text is empty or only contain invalid characters.";
     } else {
         text = "This block exist in our database.";
     }
     
-    innerHTML = '<h2 class="para__text">' + text + '</h2><div class="section__center"><button class="form__button" id="overlay__close">Ok</button></div>';
-
+    innerHTML = htmlHeading.replace('#heading', headingText) + htmlImage.replace('#location', imageLocation) + htmlPara.replace('#text', text) + htmlButton;
     showOverlay(innerHTML);
     getWordResponse();
 }
@@ -351,8 +368,13 @@ function addNewBlock() {
     // Accepts null
     // Return null
     //
-    innerHTML = '<input type="text" class="form__input" id="newBlock" autofocus placeholder="Add a new block to ' + myWord + '" name="newBlock"><hr><div class="section__center"><button class="form__button" id="overlay__close">Ok</button></div>';
+    innerHTML = htmlHeading.replace('#heading', 'New Block') + htmlPara.replace('#text', 'Please enter a new translation below') + htmlInput.replace("#id", "newBlock").replace("#placeholder", 'Add a new block to ' + myWord) + '<br>' + htmlButton;
     showOverlay(innerHTML,addTheBlock);
+}
+
+function updateProgressBar(value) {
+    value = Math.round(value);
+    document.getElementById('myProgress').querySelector(".progress__fill").style.width = `${value}%`;
 }
 
 // End of functions. Start of code
@@ -369,5 +391,25 @@ if (!!window.EventSource) {
 }
 
 source.addEventListener('message', function(e) {
-    console.log(e.data);
+    returnData = JSON.parse(e.data);
+    if (returnData[0] == 'stats') {
+        myStats = [returnData[1], returnData[2], returnData[3]];
+        progress = myStats[1] - myStats[0];
+        max = myStats[2] - myStats[0];
+        if (max == 0) {
+            updateProgressBar(100);
+        } else {
+            updateProgressBar(progress / max * 100);
+        }
+        document.getElementById('progressText').innerHTML = myStats[1] + "XP";
+    }
+    if (returnData[0] == 'achievement') {
+        achievementUnlock(returnData[1]);
+        console.log(returnData);
+    }
+    
 }, false);
+
+function achievementUnlock(achievement) {
+    showOverlay(htmlHeading.replace('#heading', 'New Achievement') + htmlImage.replace('#location', '../assets/images/badges/#badge.png').replace('#badge', achievement[1]) + htmlPara.replace('#text', achievement[2]) + htmlButton);
+}
