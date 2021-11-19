@@ -29,163 +29,6 @@ body {
     overflow: auto;
 }
 
-.container {
-    /* Body of each page */
-    
-    width: 100%;
-    display: flex;
-    box-sizing: border-box; 
-    background-color:#010816;
-    padding: 75px 10px 10px 10px;
-
-}
-
-.container img{
-
-    width: 260px;
-    height: 440px;
-    background: linear-gradient(-45deg, #00ff66, #00ffff, #ff00ff , #099fff);
-    border: 2px  solid #010816 ;
-    border-radius: 10px;
-    padding: 5px;
-    
-    
-
-}
-
-.container article{
-
-    color:#ffffff;
-    padding: 30px 0 0 40px;
-}
-
-.container2 {
-
-
-      
-    width: 100%;
-    display: flex;
-    box-sizing: border-box; 
-    background-color:var(--colour-secondary-light);
-    padding: 10px 10px 10px 10px;
-}
-
-.container2 img{
-
-    width: 260px;
-    height: 440px;
-    background: linear-gradient(-45deg, #00ff66, #00ffff, #ff00ff , #099fff);
-    border: 2px  solid var(--colour-secondary-light) ;
-    border-radius: 10px;
-    padding: 5px;
-
-
-
-}
-
-.container2 article{
-    text-align: right;
-    padding:30px 40px 0 0;
-
-
-}
-
-.container3{
-    width: 100%;
-    
-    box-sizing: border-box; 
-    background-color:#010816;
-    padding: 10px 10px 100px 10px;
-
-
-}
-
-.container3 h1{
-
-    text-align: center;
-    padding: 10px;
-    color: #ffffff;
-   
-}
-
-.container3 .team_images {
-    display: flex;
-    justify-content: space-between;
-    
-    
-    
-
-
-}
-
-.container3 img{
-    width: 62px;
-    height: 110px;
-    background: linear-gradient(-45deg, #00ff66, #00ffff, #ff00ff , #099fff);
-    border: 2px  solid #010816 ;
-    border-radius: 1000px;
-    padding: 4px;
-
-
-}
-
-.team_images article{
-
-color: #ffffff;
-text-align: center;
-align-items: center;
-width: 300px;
-height: 300px;
-padding: 10px;
-
-}
-
-.container_about_project{
-
-    width: 100%;
-    display: flex;
-    box-sizing: border-box; 
-    background-color:var(--colour-secondary-light);
-    padding: 75px 10px 10px 10px;
-}
-
-.container_about_project img{
-
-    background: linear-gradient(-45deg, #00ff66, #00ffff, #ff00ff , #099fff);
-    border: 2px  solid var(--colour-secondary-light) ;
-    border-radius: 10px;
-    padding: 5px;
-
-
-}
-
-.container_about_project article{
-
-    padding: 30px 0 0 40px;
-}
-
-
-.container_about_project a{
-
-    transition: 0.25s;
-}
-
-.container_about_project a:hover{
-    opacity: 0.6;
-    text-decoration: none;
-
-
-
-}
-
-
-
-
-
-
-
-
-
 /* Header */
 
 .nav {
@@ -310,3 +153,128 @@ padding: 10px;
 }
 
 /* CSS related to the pages themselves */
+
+.container {
+    /* Body of each page */
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    background-color:#010816;
+    padding: 75px 10px 10px 10px;
+
+}
+
+.container img{
+    margin-left: 10%;
+    width: 25%;
+    height: 50%;
+    padding: 5px;
+}
+
+.container article{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 25%;
+    margin-right: 10%;
+    color:#ffffff;
+    padding: 30px 0 0 40px;
+}
+
+.container2 {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    background-color:var(--colour-secondary-light);
+    padding: 10px 10px 10px 10px;
+}
+
+.container2 img{
+    margin-right: 10%;
+    width: 25%;
+    height: 50%;
+    padding: 5px;
+}
+
+.container2 article{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 25%;
+    margin-right: 10%;
+    text-align: right;
+    padding:30px 40px 0 0;
+}
+
+.container3{
+    width: 100%;
+    box-sizing: border-box; 
+    background-color:#010816;
+    padding: 10px 10px 130px 10px;
+}
+
+.container3 h1{
+    text-align: center;
+    padding: 10px;
+    color: #ffffff;
+}
+
+.container3 .team_images {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container3 img{
+    width: 50%;
+    border: 2px  solid #010816 ;
+    border-radius: 1000px;
+    padding: 4px;
+}
+
+.team_images article{
+color: #ffffff;
+text-align: center;
+align-items: center;
+width: 300px;
+height: 300px;
+padding: 10px;
+}
+
+.container_about_project{
+    width: 100%;
+    display: flex;
+    box-sizing: border-box; 
+    background-color:var(--colour-secondary-light);
+    padding: 75px 10px 10px 10px;
+}
+
+.container_about{
+    width: 100%;
+    display: flex;
+    box-sizing: border-box; 
+    background-color:var(--colour-secondary-light);
+    padding: 0px 150px 00px 150px;
+}
+
+.container_about_project img{
+    margin-left: 10%;
+    width: 25%;
+    height: 50%;
+    padding: 5px;
+}
+
+.container_about_project article{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 30px 0 0 40px;
+}
+
+
+.container_about_project a{
+    transition: 0.25s;
+}
+
+.container_about_project a:hover{
+    opacity: 0.6;
+    text-decoration: none;
+}
