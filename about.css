@@ -140,6 +140,45 @@ padding: 10px;
 
 }
 
+.container_about_project{
+
+    width: 100%;
+    display: flex;
+    box-sizing: border-box; 
+    background-color:var(--colour-secondary-light);
+    padding: 75px 10px 10px 10px;
+}
+
+.container_about_project img{
+
+    background: linear-gradient(-45deg, #00ff66, #00ffff, #ff00ff , #099fff);
+    border: 2px  solid var(--colour-secondary-light) ;
+    border-radius: 10px;
+    padding: 5px;
+
+
+}
+
+.container_about_project article{
+
+    padding: 30px 0 0 40px;
+}
+
+
+.container_about_project a{
+
+    transition: 0.25s;
+}
+
+.container_about_project a:hover{
+    opacity: 0.6;
+    text-decoration: none;
+
+
+
+}
+
+
 
 
 
