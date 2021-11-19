@@ -119,6 +119,7 @@
 
             $returnValue =  mysqli_query($conn, $sql);
             $returnValue = "<done>";
+            updateXP($conn, $userID, 5);
         } else {
             $returnValue = "<exist>";
         }
@@ -142,6 +143,7 @@
 
             $returnValue =  mysqli_query($conn, $sql);
             $returnValue = "<done>";
+            updateXP($conn, $userID, 3);
         } else {
             $returnValue = "<exist>";
         }
@@ -229,16 +231,22 @@
         // Accept the (connection)conn, (int)wordID, (int)userID, (int)vote
         // Return the (Query data)
         //
+        $sql = "SELECT * FROM word_activity WHERE  WordID=$wordID AND UserID=$userID";
+        $result =  mysqli_query($conn, $sql);
+        $amount = mysqli_num_rows($result);
+
         $sql = "DELETE FROM word_activity WHERE  WordID=$wordID AND UserID=$userID";
     
         $result =  mysqli_query($conn, $sql);
+
+        $amount = 2 * (!(boolean)$amount);
 
         if (($vote >= 0) && ($vote <= 2)) {
             $sql = "INSERT INTO word_activity (WordID, UserID, Parameter)
             VALUES ('$wordID','$userID','$vote')";
 
             $result =  mysqli_query($conn, $sql);
-            updateXP($conn, $userID, 1);
+            updateXP($conn, $userID, $amount);
         }
 
         return($result);
