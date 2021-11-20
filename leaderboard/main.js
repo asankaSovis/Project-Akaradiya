@@ -60,6 +60,7 @@ function gotProfileData(reply) {
         profileInfo = JSON.parse(reply);
         sendXML('getUserRank', profileInfo[3], gotUserRank);
     } else {
+        sendXML('getleadersRank', 20, gotleadersRank);
     }
 }
 
@@ -82,14 +83,15 @@ function gotleadersRank(reply) {
         document.getElementById("achievers").innerHTML += (htmlString);
         i++;
     });
+    if (profileInfo.length != 0) {
+        if (profileInfo[6] > 20) {
+            htmlString = achieverHTML.replace('#innerHTML', '');
+            document.getElementById("achievers").innerHTML += (htmlString);
 
-    if (profileInfo[6] > 20) {
-        htmlString = achieverHTML.replace('#innerHTML', '');
-        document.getElementById("achievers").innerHTML += (htmlString);
-
-        element = [profileInfo[1], profileInfo[3]];
-        htmlString = achieverHTML.replace('#innerHTML', achieverTextHTML.replace('#innerHTML', profileInfo[6] + ". " + element[0] + " (" + element[1] + ")" ) + achieverProgressHTML.replace('#value', percentage));
-        document.getElementById("achievers").innerHTML += (htmlString);
+            element = [profileInfo[1], profileInfo[3]];
+            htmlString = achieverHTML.replace('#innerHTML', achieverTextHTML.replace('#innerHTML', profileInfo[6] + ". " + element[0] + " (" + element[1] + ")" ) + achieverProgressHTML.replace('#value', percentage));
+            document.getElementById("achievers").innerHTML += (htmlString);
+        }
     }
     htmlString = achieverHTML.replace('#innerHTML', '');
     document.getElementById("achievers").innerHTML += (htmlString);

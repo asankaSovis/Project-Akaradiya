@@ -135,7 +135,7 @@
         // <exist> - word already exist
         //
         $returnValue = "";
-        if ($definition == "") {
+        if ($definition == '["",""]') {
             $returnValue = "<empty>";
         } else if (getDefinition($conn, $wordID, $definition) == "<empty>") {
             $sql = "INSERT INTO definitions (WordID, UserID, Definition)
