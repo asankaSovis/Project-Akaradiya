@@ -115,14 +115,27 @@
         if (($XP > $higher[1]) && ($lower[1] < $higher[1])) {
             newAchievement($conn, $user, $higher[0]);
         }
+        $sql = "SELECT AchievementID FROM achievement_activity WHERE UserID=$user AND AchievementID=1";
+        $result = mysqli_query($conn, $sql);
+        //sendMsg('message', json_encode(['debug', mysqli_num_rows($result)]));  
+        if (mysqli_num_rows($result) == 0) {
+            $sql = "SELECT Verified FROM users WHERE UserID = $user";
+            $result = mysqli_query($conn, $sql);
+            $returnData = mysqli_fetch_row($result);
+            if ($returnData.include('1')) {
+                newAchievement($conn, $user, '1', 'Milestone');
+            }
+            
+        }
+        
     }
 
-    function newAchievement($conn, $user, $higher) {
+    function newAchievement($conn, $user, $higher, $type='Level') {
         $sql = "INSERT INTO achievement_activity (UserID, AchievementID, Type)
-        VALUES ('$user','$higher','Level')"; // SQL query
+        VALUES ('$user','$higher','$type')"; // SQL query
         mysqli_query($conn, $sql);
 
-        $sql = "SELECT AchievementID, Achievement, Description FROM achievements WHERE AchievementID = $higher";
+        $sql = "SELECT AchievementID, Achievement, Description FROM achievements WHERE AchievementID=$higher";
         $resultBadge =  mysqli_query($conn, $sql);
         sendMsg('message', json_encode(['achievement', mysqli_fetch_row($resultBadge)]));   
     }

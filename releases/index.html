@@ -1,0 +1,33 @@
+<!-- This is the About Us webpage.
+This website loads when the user clicks on a link or enter /us.
+This website is the About Us of Akaradiya.
+Parameters are not passed. -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Akaradiya - The Open Sri Lankan Dictionary</title>
+        <link rel="shortcut icon" href="../assets/favicon.ico">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@300&family=Zen+Antique+Soft&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../about.css">
+    </head>
+
+    <body>
+        <!-- Header -->
+        <iframe src="../home/header.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+        <!-- Body -->
+        <div class="container" style="background-color:var(--colour-secondary-light);">
+            <article>
+                <h1 style="color: black;">Releases</h1>
+                <p style="color: black;font-size: 50px;">
+                    No releases yet.
+                </p>
+            </article>
+        </div>
+        <!-- Footer -->
+        <iframe src="../home/footer.html" onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"></iframe>
+    </body>
+</html>

@@ -330,7 +330,6 @@ body {
     padding-top: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-left: 200px;
 }
 
 .section__center {
@@ -367,10 +366,9 @@ body {
     /* Word that is loaded  */
     font-family: 'Zen Antique Soft', serif;
     width: 80%;
-    font-size: 50px;
-    padding: 0 5%;
+    font-size: 30px;
     text-align: left;
-    color: #931c1c;
+    color: black;
     text-decoration: none;
     font-weight: bold;
 }
@@ -379,10 +377,9 @@ body {
     /* Each definition */
     font-family: 'Zen Antique Soft', serif;
     width: 80%;
-    font-size: 30px;
-    padding: 0 10%;
+    font-size: 20px;
     text-align: left;
-    color: #931c1c;
+    color: black;
     text-decoration: none;
     font-weight: bold;
 }
@@ -403,12 +400,12 @@ hr {
     border-radius: var(--border-radius);
     outline: none;
     cursor: pointer;
-    background: var(--color-primary);
+    background: none;
 }
 
 .icon__button:hover {
     /* Styling for the hover action of icon buttons */
-    background: var(--color-primary-dark);
+    background: #eeeeee;
 }
 
 .icon__button:active {

@@ -135,7 +135,13 @@ function gotDefinitions(definitions) {
     i = 0;
 
     definitionList.forEach(item => {
-        innerHTML = definitionXML.replace("#definition", i + 1 + ". " + item[1]);
+        gotDefinition = item[1];
+        try {
+            stringParse = JSON.parse(item[1]);
+            gotDefinition = "(" + stringParse[0] + ") " + stringParse[1];
+        } catch {}
+
+        innerHTML = definitionXML.replace("#definition", i + 1 + ". " + gotDefinition);
         btnHTML = buttonXML.replace("#btnID", "+" + i + "+0").replace("#btnID", "+" + i + "+0").replace("#btnType", "like");
         btnHTML += buttonXML.replace("#btnID", "+" + i + "+1").replace("#btnID", "+" + i + "+1").replace("#btnType", "dislike");
         btnHTML += buttonXML.replace("#btnID", "+" + i + "+2").replace("#btnID", "+" + i + "+2").replace("#btnType", "flag");
@@ -333,7 +339,7 @@ function addTheBlock(text) {
     // Return null
     //
     try {
-        inputText = document.getElementById('newBlock').value
+        inputText = JSON.stringify([document.getElementById('newBlock1').value, document.getElementById('newBlock2').value]);
         sendXML('addDefinition', JSON.stringify([myWordID, myID, inputText]), addedNewBlock);
     } catch (error) {}
     hideOverlay();
@@ -368,7 +374,7 @@ function addNewBlock() {
     // Accepts null
     // Return null
     //
-    innerHTML = htmlHeading.replace('#heading', 'New Block') + htmlPara.replace('#text', 'Please enter a new translation below') + htmlInput.replace("#id", "newBlock").replace("#placeholder", 'Add a new block to ' + myWord) + '<br>' + htmlButton;
+    innerHTML = htmlHeading.replace('#heading', 'New Block') + htmlPara.replace('#text', 'Please enter a new translation below') + htmlInput.replace("#id", "newBlock1").replace("#placeholder", 'Category of the definition (n, v, adj, adv) for ' + myWord) + '<br>' + htmlInput.replace("#id", "newBlock2").replace("#placeholder", 'New definition for ' + myWord) + '<br>' + htmlButton;
     showOverlay(innerHTML,addTheBlock);
 }
 
@@ -405,7 +411,11 @@ source.addEventListener('message', function(e) {
     }
     if (returnData[0] == 'achievement') {
         achievementUnlock(returnData[1]);
-        console.log(returnData);
+        
+    }
+    if (returnData[0] == 'debug') {
+        console.log(returnData[1]);
+        
     }
     
 }, false);
