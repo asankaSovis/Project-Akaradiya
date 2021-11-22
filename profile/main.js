@@ -150,14 +150,12 @@ function gotUserRank(reply) {
 function gotBadges(reply) {
     badges = JSON.parse(reply);
     // console.log(badges[0]);
-    levelNotSet = true;
     badges.forEach(element => {
         htmlString = listHTML.replace('#innerHTML', listTitleHTML.replace('#innerHTML', element[1]) + listImageHTML.replace('#location', darkBadge.replace('#badgeName', element[1])) + listDescHTML.replace('#innerHTML', element[2]));
         document.getElementById("autoWidth").innerHTML += (htmlString);
         if (element[1].includes('Level') && levelNotSet) {
             document.getElementById("badgeImage").src = darkBadge.replace('#badgeName',  element[1]);
             document.getElementById("badgeName").innerHTML = element[1];
-            levelNotSet = false;
         } 
     });
     // if (badges.length > 0) {
