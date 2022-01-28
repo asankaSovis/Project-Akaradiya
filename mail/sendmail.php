@@ -129,8 +129,8 @@
         //
         // Create the Swift mailer Transport
         $transport = (new Swift_SmtpTransport('smtp-relay.sendinblue.com', 587, 'tls'))
-        ->setUsername('EMAIL')
-        ->setPassword('PASSWORD')
+        ->setUsername(EMAIL)
+        ->setPassword(PASSWORD)
         ;
 
         //Create the Mailer using the created Transport
@@ -138,7 +138,7 @@
 
         // Creating the message
         $message = (new Swift_Message($heading))
-            ->setFrom([EMAIL => 'Akaradiya Open Dictionary'])
+            ->setFrom(['no-reply@akaradiya.ml' => 'Akaradiya Open Dictionary'])
             ->setTo([$email])
             ->setBody($text)
             ->setContentType("text/html");
