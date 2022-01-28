@@ -128,9 +128,9 @@
         // Note: This is done using the Swiftmailer and using the email account we created
         //
         // Create the Swift mailer Transport
-        $transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
-        ->setUsername(EMAIL)
-        ->setPassword(PASSWORD)
+        $transport = (new Swift_SmtpTransport('smtp-relay.sendinblue.com', 587, 'tls'))
+        ->setUsername('EMAIL')
+        ->setPassword('PASSWORD')
         ;
 
         //Create the Mailer using the created Transport
