@@ -1,4 +1,10 @@
-# Project-Akaradiya
+# 📚 Project Akaradiya
+
+![Project Akaradiya](https://user-images.githubusercontent.com/46389631/194695742-6f123684-f9e5-4487-ac50-eb41ff499592.png)
+> Building an opensource Sinhala dictionary
+
+---
+
 Building a database of Sinhala definitions for an English dictionary using crowd sourcing. Anyone can create an account using their email. They can later add words to the dictionary, add definitions to the existing words, vote for the best definition from currently existing definitions that others have added. At fixed time periods, the words with the most votes above a threshold are compiled into a release database which is provided to the public as the 'Akaradiya Sinhala English Dictionary'. The cycle continues with new versions of the dictionary database released at a constant interval.
 For anyone who is fluent in English and Sinhala, most preferably native Sinhala speakers. Not restricted by gender or race. Age restrictions can be put up if required, for now, above 16 is preferred.
 
@@ -10,8 +16,6 @@ When we talk about the open dictionaries Wikipedia, Macmillan, Urban, Wiktionary
 On the other hand, we identify those open dictionaries have the potential to grow while getting better and more accurate in the long term. Wikipedia is the best example. The open dictionaries can also influence the creation of new words and publicize the use of them.
 Our goal is to introduce the advantages of the open dictionary concept to the Sinhala language. Through this, we plan to create a much broader and diverse collection of definitions to the community.
 Even though currently, our plan lies in an English to Sinhala language dictionary, it has the potential to expand into a much broader scope of Sinhala to English and Sinhala dictionary as well.
-
-**NOTE THAT THIS IS STILL IN THE DEVELOPMENT PHASE**
 
 ## Project Objectives and Expected Benefits
 1.	Objective 1 - Create an initial platform for sharing knowledge on Sinhala language
@@ -27,8 +31,8 @@ Even though currently, our plan lies in an English to Sinhala language dictionar
 A word is an English word that is in the database that needs a definition. A word is divided into Attribute Blocks which contains the attributes required to structure a complete definition. The structure of a word is as follows:
 
 ```
-**Word**
-**Definition** [Class	|	Pronunciation	|	Definition]
+    Word
+    Definition [Class	|	Pronunciation	|	Definition]
 ```
 - A word can have multiple Attribute Blocks. Users can choose which ones are better than the other. The ones that best associates with the word remains after filtering.
 - A word should be a Char[15], with an INT ID.
@@ -68,15 +72,15 @@ There should be the functionality to reset the password. When clicked, an email 
 Passwords must be stored encrypted in the database.
 
 ## File Structure
-- akaradiya/404error/404.html [The master 404 error]
-- akaradiya/assets/images/placeholder.png [Random placeholder image]
-- akaradiya/assets/favicon.ico [Master icon file]
+- akaradiya/404error/404.html [The master 404 error] ✓
+- akaradiya/assets/images/placeholder.png [Random placeholder image] ✓
+- akaradiya/assets/favicon.ico [Master icon file] ✓
 - akaradiya/edit/edit.php [PHP of the user information editing form] ✓
 - akaradiya/edit/index.html [HTML of the user information editing form] ✓
 - akaradiya/edit/main.js [JS of the user information editing form] ✓
 - akaradiya/mail/vendor [Files of Swiftmailer library] ✓
-- akaradiya/mail/composer.json [  "   ] ✓
-- akaradiya/mail/composer.lock [  "   ] ✓
+- akaradiya/mail/composer.json [Files of Swiftmailer library] ✓
+- akaradiya/mail/composer.lock [Files of Swiftmailer library] ✓
 - akaradiya/mail/sendmail.php [PHP of the email sending form] ✓
 - akaradiya/mail/index.html [HTML of the email sending form] ✓
 - akaradiya/mail/mail.html [HTML structure of the email to be sent to the user] ✓
@@ -91,8 +95,8 @@ Passwords must be stored encrypted in the database.
 - akaradiya/verification/index.html [HTML of the verification form] ✓
 - akaradiya/verification/authentication.php [PHP of the verification form] ✓
 - akaradiya/verification/main.js [JS of the verification form] ✓
-- akaradiya/.gitignore [Gitignore file]
-- akaradiya/.htaccess [Apache configuration file]
-- akaradiya/index.html [Homepage HTML file]
+- akaradiya/.gitignore [Gitignore file] ✓
+- akaradiya/.htaccess [Apache configuration file] ✓
+- akaradiya/index.html [Homepage HTML file] ✓
 - akaradiya/main.css [Main CSS file to be used throughout the project] ✓
-- akaradiya/README.md [Readme file of Github {This file}]
+- akaradiya/README.md [Readme file of Github {This file}] ✓
