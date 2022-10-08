@@ -32,7 +32,7 @@ A word is an English word that is in the database that needs a definition. A wor
 
 ```
     Word
-    Definition [Class	|	Pronunciation	|	Definition]
+    Definition [	Class	|	Pronunciation	|	Definition	]
 ```
 - A word can have multiple Attribute Blocks. Users can choose which ones are better than the other. The ones that best associates with the word remains after filtering.
 - A word should be a Char[15], with an INT ID.
