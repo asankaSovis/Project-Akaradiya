@@ -100,3 +100,5 @@ Passwords must be stored encrypted in the database.
 - akaradiya/index.html [Homepage HTML file] ✓
 - akaradiya/main.css [Main CSS file to be used throughout the project] ✓
 - akaradiya/README.md [Readme file of Github {This file}] ✓
+
+`© 2022 Asanka Sovis`
