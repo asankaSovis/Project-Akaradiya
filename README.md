@@ -6,7 +6,7 @@
 ---
 
 *💸 Please consider donating on [Paypal](https://www.paypal.com/donate/?hosted_button_id=4EWXTWQ9FUFLA) to keep this project alive.*
-* This project is released under the GNU GPL v3.0*
+*This project is released under the GNU GPL v3.0*
 
 Building a database of Sinhala definitions for an English dictionary using crowd sourcing. Anyone can create an account using their email. They can later add words to the dictionary, add definitions to the existing words, vote for the best definition from currently existing definitions that others have added. At fixed time periods, the words with the most votes above a threshold are compiled into a release database which is provided to the public as the 'Akaradiya Sinhala English Dictionary'. The cycle continues with new versions of the dictionary database released at a constant interval.
 For anyone who is fluent in English and Sinhala, most preferably native Sinhala speakers. Not restricted by gender or race. Age restrictions can be put up if required, for now, above 16 is preferred.
